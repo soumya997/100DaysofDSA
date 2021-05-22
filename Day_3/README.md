@@ -52,5 +52,47 @@ It is common to all data types like int *, float * etc.
 
 PS: Read about ` Dereference Operator`.
 
+# Array Pointers:
+<p align="center">
+    <img src="../imgs/pointer1.png">
+</p>
+
+
+```cpp
+int A[] = {2,4,5,8,9};
+int *ptr;
+
+prt = A  
+cout<<ptr<<" "<<A; // Address of A[2] -> the 1st element
+
+cout<<*ptr         // Prints the element stored in A[2], 
+                   //its called dereferencing
+
+cout<< ptr+1;        // prints the address of 2nd element
+
+cout<<*(ptr+1)       // prints the 2nd element
+```
+In array pointer, you stores the address of the 1st element by providing the array name(here its `A`) in an pointer array. Then to access the other elements by incrementing the pointer and dereferencing it one by one (I mean `*(p+1)`). Dereferencing means adding `*` with a pointer variable. This helps to get the element stored.
+
+##  Passing array in a function:
+```cpp
+void fun(int *arr,int n){
+    ...
+}
+int main(){
+    fun(arr, n);
+}
+```
+
+## Passing a variable in a function:
+```cpp
+void fun(int *x){
+    ...
+}
+int main(){
+    fun(&x);
+}
+```
+
 
 
