@@ -1,15 +1,6 @@
-- [things I learned in Day 6:](#things-i-learned-in-day-6-)
-  * [`rotate()` function:](#-rotate----function-)
-  * [use `next_permutation()` function:](#use--next-permutation----function-)
-  * [use `swap()` func:](#use--swap----func-)
-  * [use `min()` and `max()`:](#use--min----and--max----)
-  * [use `reverse()` func:](#use--reverse----func-)
-  * [`pair` class:](#-pair--class-)
-- [vector:](#vector-)
-
 
 # things I learned in Day 6:
-
+**Note:** use the github provided TOC for navigaing.
 
 
 ## `rotate()` function:
@@ -119,4 +110,5 @@ int main(){
 
 ```
 # vector:
+new line 
  
