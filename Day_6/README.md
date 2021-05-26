@@ -126,23 +126,8 @@ int main(){
     vector<int> d{1,2,3,4,5,6};
 
 }
-
 ```
-## How to eterate over the vector
-```cpp
-int main(){
-    //ways to create a vector
-    vector<int> a;
-    vector<int> b(5,10);                   // five int with value 10- init a
-                                           //  vector consists of n zeros (n,0)
-    
-    vector<int> c(b.begin(),b.end());      // copy all the elements of vector b
 
-    vector<int> d{1,2,3,4,5,6};
-
-}
-
-```
 ## iterate over vector
 ```cpp
 int main(){
@@ -251,7 +236,7 @@ int main(){
 
 ```
 
-#### `fromt()` method:
+#### `front()` method:
 ```cpp
 int main(){
     vector<int> v{1,2,3,4,5,6};
