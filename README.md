@@ -7,7 +7,7 @@
 
 <p align="center">
     <a href="https://twitter.com/Soumya997Sarkar/status/1394370312486068225?s=20">
-        <img style="border-radius: 50%;"; src="imgs/twitter.png">
+        <img style="border-radius: 50%;"; src="imgs/twitter.png" width="450">
     </a>
 </p>
 
