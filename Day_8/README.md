@@ -26,7 +26,7 @@ Say you need to find factorial of 3(3!). you can solve it via recursion but you 
 - 2nd Assume Sub Problems can be solved bu recursion. In our case we can assume that `Factorial(N-1)` can be computed using recursion, we need to assume this.
 - 3rd Using the sub-problem write the answer for the current problems. In our case, it is `Factorial(N) = N * Factorial(N-1)`.
 
-#### Code:
+### Code:
 ```cpp
 int Factorial(int n){
     //base case
