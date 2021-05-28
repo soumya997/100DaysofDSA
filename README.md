@@ -54,6 +54,9 @@ Table to see the twitter posts regarding `100DaysOfDSA` challenge. **I will try 
 |Day 4|https://twitter.com/Soumya997Sarkar/status/1396210281429094402?s=20|May 23|
 |Day 5|https://twitter.com/Soumya997Sarkar/status/1397283174820896769?s=20|May 25|
 |Day 6|https://twitter.com/Soumya997Sarkar/status/1397284274479325185?s=20|May 25|
+|Day 7|https://twitter.com/Soumya997Sarkar/status/1397652904756932613?s=20|May 27|
+|Day 8|https://twitter.com/Soumya997Sarkar/status/1398386855289131009?s=20|May 29|
+|Day 9|https://twitter.com/Soumya997Sarkar/status/1398388971206438914?s=20|May 29|
 
 
 
