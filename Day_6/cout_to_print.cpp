@@ -8,6 +8,11 @@ int main()
     print("Hello World!")<<endl;
     print("hi");
     // print(endline);
+    int n;
+    cin>>n;
+    int k;
 
-    return 0;  
+
+
+    return 0;
 }

@@ -14,4 +14,3 @@ you can devied it in multiple ways, but you need to perform the same operation o
 - Always keep in mind that, a problem that can be solved using recursion also can be solved iteratively.
 
 - we will be using recursion when we will find that the given problem can be broken into same smaller problems. e.g. factorial of an number, here we can say `factorial(N) = N * factorial(N-1)`. here we can devide the bigger problem into a same problem but for smaller input size.
-
