@@ -31,6 +31,9 @@ This table consists only the topics that I have learned during a day.
 |Day 4|1. Charecter array,<br>2. String|[Day 4](Day_4)|
 |Day 5|**Algo STL**<br>1. Use of `find()` function,<br>2. use of `binary_search()`,<br>3. use `lower_bound()` and `upper_bound()`,<br>4. Use `sort()` function|[Day 5](Day_5)|
 |Day 6|**Algo STL**<br>1. `rotate()` function,<br>2. use `next_permutation()` function,<br>3. use `swap()` func,<br>4. use `min()` and `max()`,<br>5. use `reverse()` func,<br>6. `pair` class,<br>**Vector**<br>7. create a vector,<br>8. iterate over vector,<br>9. take user input in a vector,<br>**Various methods availsble in vector header**<br>10. `push_back()` and `pop_back()` method,<br>11. `.insert()` ,`erase()`, `clear()` and `empty()` method,<br>12. `resize()` an element,<br>13. `front()` method,<br>14. using `v.push_back()` is an expensive operation, use `reserve()`,<br>15. slicing operation in vector class,<br>16.see how to pass vector to a function,<br>17. use templates for vector for slicing|[Day 6](Day_6)|
+|Day 7|**Recursion-part-I**<br>1. Recursion basics|[Day 7](Day_7)|
+|Day 8|**C++ development**<br>1.How to use `CImg` library in c++,<br>2.  `C++` Auto-complete for Sublime text,<br>3. Using `print()` instade of `cout<<`,<br>4. resources on `Image preprocessing` from scratch using only c++,<br>5. Use of multiple file code splitting|[epics](epics)|
+|Day 9|**More recursion Basics**<br>1. Technique to solve Recursive problems,<br>2. Example,<br>3. Code,<br>4. How recursion works internally,<br>5. How callstack works at the time of recursion|[Day 9](Day_8)|
 
 
 ## Questions:
@@ -54,5 +57,4 @@ Table to see the twitter posts regarding `100DaysOfDSA` challenge. **I will try 
 
 
 
-# dd
-# ss
+
