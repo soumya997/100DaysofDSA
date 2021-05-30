@@ -1,244 +1,66 @@
-# Things I learned in: Day_9
+# Things I learned in Day 7:
 **Note:** use the github provided TOC for navigaing.
 
-# Linked List:
-- LL is not a linear data structure.
-- everytime you get a new data point you allocate a small chunk of memory, and store your data in it.
-- we also store the ordering in which the data is comming
-- For storing both the data and the ordering we use a custom data structure that we called a `node`.
-- `Node` is devided into two parts,
-    1. where data gets stored
-    2. where address(ordering) gets stored.
-- And a LL is formed like below, 
-- `Some times we also need to store the address of the tail done` for doing any kind of operation with the end of the linked List(e.g updating the tail node).
+## Recursion(I-Basics):
 
-## Linked List implementation:
-### object oriented approach:
-```cpp
-class node(){
-public:
-    int data;
-    node* next;
- 
-    //constructor
-    node(int d){
-        data = d;
-        next = NULL;
-    }
-};
+### Technique to solve Recursive problems:
+There is two parts of recursive solution,
 
-// linked list class
-class linked_list(){
-    node* head;
-    node* tail;
-public:
-    void insert(int d){
-
-    }
-    ...
-    ...
-}
-int main(){
-    
-    return 0;
-}
+- Base Case (other wise program will keep on running untill it hits the memory limit, in other words its called **segmentation fault**)
+- Recursive case ( works toward base case) 
 ```
-### only function:
-```cpp
-//defining the node
-class node(){
-public:
-    int data;
-    node* next;
- 
-    //constructor
-    node(int d){
-        data = d;
-        next = NULL;
-    }
-};
-
-//passing by reference
-void insert_head(node*& head,int d){
-    if(head == NULL){
-        head = new node(d);
-        return;
-    }
-
-    node *n = new node(d);
-    n->next = head;
-    head= n;
-}
-void insert_tail(node*&head,int data){
-
-    if(head==NULL){
-        head = new node(data);
-    }
-    else{
-        node*temp = head;
-        while(temp->next!=NULL){
-            temp = temp->next;
-        }
-        temp->next = new node(data);
-    }
-}
-int length(node *head){
-    int len=0;
-    while(head){
-        len++;
-        head = head->next;
-    }
-    return len;
-}
-
-void insert_middle(node*&head,int data,int p){
-
-    if(p==0){
-        insert_head(head,data);
-        return;
-    }
-    else if(p>=length(head)){
-        insert_tail(head,data);
-        return;
-    }
-    else{
-        node*temp = head;
-        int jump = 1;
-        
-        while(jump<=p-1){
-            temp = temp->next;
-            jump++;
-        }
-        node*n =  new node(data);
-        n->next = temp->next;
-        temp->next = n;
-    }
-    return;
-}
-
-// printing the ll
-void print_ll(node* head){
-    while(head!=NULL){
-        cout<<head->data<<", ";
-        head = head->next;
-    }
-    cout<<endl;
-}
-
-void delete_head(node* head){
-    node* temp = head->next;
-    delete head;
-    head = temp;
-}
-
-node* search_recursion(node*head,int key){
-    if(head==NULL){
-        return NULL;
-    }
-    if(head->data==key){
-        return head;
-    }
-    else{
-        return search(head->next,key);
-    }
-}
-
-bool search_recursion_bool(node*head,int key){
-    if(head==NULL){
-        return false;
-    }
-    if(head->data==key){
-        return true;
-    }
-    else{
-        return search(head->next,key);
-    }
-}
-
-bool search(node* head,int key){
-    node* temp = head;
-    while(temp->next==NULL){
-        if(head->data == key){
-            return true;
-        }
-    }
-    return false;
-} 
-
-node* take_input(){
-    int d;
-    cin>>d;
-    node* head = NULL;
-
-    while(d!=-1){
-        insert_head(head,d);
-        cin>>d;
-    }
-    return head;
-}
-// take input from input.txt
-node* take_input_txt(){
-    int d;
-    node* head = NULL;
-
-    while(cin>>d){
-        insert_head(head,d);
-    }
-
-    return head;
-}
-
-
-// driver code
-int main(){
-    node* head = NULL;
-    insert_head(head,1);
-    insert_head(head,2);
-    insert_head(head,3);
-    insert_head(head,4);
-    
-    print_ll(head);                     // prints-> 4, 3, 2, 1,
-    delete_head(head);                  // prints-> 3,2,1,
-}
+===============================================================================
+|Easiest way to Approach Recursion problems                                   |
+|"Magical" Recirsion Rule = "Principal of Methematical Induction(PMI)"        |
+===============================================================================
+| 1. Figure out the base case. There can be multiple base cases               |
+| 2. Assume Sub Problems can be solved bu recursion (sutomatically)(IMP)      |
+| 3. Using the sub-problem write the answer for the current problems.         |
+===============================================================================
 ```
 
+### Example:
+Say you need to find factorial of 3(3!). you can solve it via recursion but you can also solve it using recursion too.
 
+- 1st Figure out the base case, in our case it is, `Factorial(0) =1` as `0!=1`.
+- 2nd Assume Sub Problems can be solved bu recursion. In our case we can assume that `Factorial(N-1)` can be computed using recursion, we need to assume this.
+- 3rd Using the sub-problem write the answer for the current problems. In our case, it is `Factorial(N) = N * Factorial(N-1)`.
 
+### Code:
+```cpp
+int Factorial(int n){
+    //base case
+    if(n==0){
+        return 1;
+    }
+    // recursive case
+    int small_ans = Factorial(N-1); 
+    int factorial = n * small_ans;
 
+    // return the calculated value
+    return factorial; 
+}
+int main(){
+    int n;
+    n = 3;
+    cout<<Factorial(3);
+}
 
+```
+### How recursion works internally:
+<p align="center">
+    <img src="../imgs/recursion.png">
+</p>
 
+As you can see in the picture, there are two calls happens, one is `top down call` and another is `bottom up call`. 
 
+- `top down call` when execution of the recursive case happens, the function call from the recursive case keeps on happening untill it hits the `base case`. 
+- And in `bottom up call`, after hitting the base case it returns the base value and the smaller problems get solved one by one untill the first call gets its value.
 
+### How callstack works at the time of recursion:
+<p align="center">
+    <img src="../imgs/call_stack.png">
+</p>
 
- 
+Function calls happens via call stack, the rectengle represents the call stack. and in thaat call stack we have main func and all the variables associated with the func are in stack memory, bcoz of that N is all the stacks, when `Factorial()` gets called a stack memory gets assigned to the `Factorial()` where N=5, then internally the afain `Factorial()` call happens(in the small_ans line) and it gets a stack memory too, but N is now 5-1=4;but value of `Factorial(4)` is unknown, so again function call happens, and this goes on untill it hit the base case, when it hit the base case it returns some value, and the stack memory gets deleted(the top memory), and this returned value gets passed to smaller problem (below stack function calls where N=1) and `small_ans` gets calculated and that stack memory gets deleted, and this keep going on untill it comes to main, and from main the value is printed.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# terms to remember:
-1. dereference, we use it in pointer to get the value
-2. when we pass by a variable reference using `&` in the function(e.g-> fun(int& age)), then it updates the value for the main function if any operation happens with the variable.  
