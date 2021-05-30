@@ -14,5 +14,5 @@ read dir_name                                           # taking file name from 
 mkdir $dir_name                                         # making the directory using the user input
 cp touch.sh $dir_name                                   # copying touch.sh in that directory
 touch $dir_name/README.md                               # creating a README.md file
-echo -e "# Things I learned in Day 7: $dir_name\n**Note:** use the github provided TOC for navigaing." >> $dir_name/README.md            # putting the dir name inside the README
+echo -e "# Things I learned in: $dir_name\n**Note:** use the github provided TOC for navigaing." >> $dir_name/README.md            # putting the dir name inside the README
 
