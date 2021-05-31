@@ -4,13 +4,6 @@
     </a>
 </p>
 
-
-<p align="center">
-    <a href="https://twitter.com/Soumya997Sarkar/status/1394370312486068225?s=20">
-        <img style="border-radius: 50%;"; src="imgs/twitter.png" width="450">
-    </a>
-</p>
-
 <p align="center">
     <a href="https://twitter.com/Soumya997Sarkar"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/Soumya997Sarkar?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@Soumya997Sarkar"></a>
 </p>
