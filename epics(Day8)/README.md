@@ -89,3 +89,13 @@ In future I wish to work on this, But after doing a bit searching in youtube I h
 1. https://youtu.be/HGHbcRscFsg
 2. Youtube Playlist https://www.youtube.com/watch?v=028GNYC32Rg&list=PLG5M8QIx5lkzdGkdYQeeCK__As6sI2tOY
 
+
+## some blogs for cp:
+- https://blog.anudeep2011.com/
+- http://www.mathblog.dk/
+- https://kartikkukreja.wordpress.com/
+- https://cp-algorithms.com/
+- https://www.codingninjas.com/blog/2019/09/21/sites-and-tools-for-competitive-programming/ 
+- https://blog.codingblocks.com/
+- https://codeforces.com/blog/entry/23054
+- https://journeywithdp.blogspot.com/

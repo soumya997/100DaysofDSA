@@ -12,6 +12,14 @@
 - And a LL is formed like below, 
 - `Some times we also need to store the address of the tail done` for doing any kind of operation with the end of the linked List(e.g updating the tail node).
 
+<p align="center">
+    <img src="../imgs/ll1.png">
+</p>
+
+<p align="center">
+    <img src="../imgs/ll2.png">
+</p>
+
 ## Linked List implementation:
 ### object oriented approach:
 ```cpp
