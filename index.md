@@ -1,13 +1,13 @@
 <p align="center">
     <a href="https://twitter.com/Soumya997Sarkar/status/1394370312486068225?s=20">
-        <img src="imgs/dsa.png" height="100">
+        <img src="dsa.png" height="100">
     </a>
 </p>
 
 
 <p align="center">
     <a href="https://twitter.com/Soumya997Sarkar/status/1394370312486068225?s=20">
-        <img style="border-radius: 50%;"; src="imgs/twitter.png" width="450">
+        <img style="border-radius: 50%;"; src="twitter.png" width="450">
     </a>
 </p>
 
