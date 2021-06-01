@@ -5,6 +5,11 @@
 </p>
 
 <p align="center">
+    <a href="https://twitter.com/Soumya997Sarkar/status/1394370312486068225?s=20">
+        <img src="imgs/twitter.png" height="100">
+    </a>
+</p>
+<p align="center">
     <a href="https://twitter.com/Soumya997Sarkar"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/Soumya997Sarkar?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@Soumya997Sarkar"></a>
 </p>
 
