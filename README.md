@@ -6,7 +6,7 @@
 
 <p align="center">
     <a href="https://twitter.com/Soumya997Sarkar/status/1394370312486068225?s=20">
-        <img src="imgs/twitter.png" height="100">
+        <img src="imgs/twitter.png" width="500">
     </a>
 </p>
 <p align="center">
