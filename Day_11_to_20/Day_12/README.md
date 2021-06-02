@@ -105,7 +105,3 @@ int main(int argc, char const *argv[])
     return 0;
 }
 ```
-# Queue:
-- simple/physical example is queue at the ATM,Bank,food stall etc. 
-- It works in FIFO(first in first out) order.
-- push happens from the back and pop happens from the front.
