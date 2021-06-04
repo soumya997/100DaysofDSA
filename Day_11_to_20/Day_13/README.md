@@ -248,7 +248,7 @@ int main(){
 
     cout<<height(root);
 
-    print_kth_level(root,3)
+    print_kth_level(root,3);
 
     print_all_level(root);
 
