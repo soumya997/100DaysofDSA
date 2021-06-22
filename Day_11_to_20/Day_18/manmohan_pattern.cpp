@@ -60,5 +60,44 @@ int main() {
 #endif
 
     fastio();
+    // this Code doesn't work
+    /*
+        1
+        11
+        111
+        1001
+        11111
+        100001
+    */
+    int n;
+    cin>>n;
+    cout<<1<<nline;
+    cout<<1<<1<<nline;
+    for(int i=3;i<=n;i++){
+        int k=1;
+        for(int j=1;j<=n;j++){
+            if(j<=i){
+                cout<<k;
+                if(i%2!=0){
+                    int g = i;
+                    while((g--)>1){
+                        cout<<1;
+                    }
+                }
+                else{
+                    int g = i;
+                    while((g--)>1){
+                        cout<<0;
+                    }
+                }
+                cout<<k;
+            }
+            else{
+                cout<<" ";
+            }
+        }
+        cout<<nline;
+    }
+
 
 }

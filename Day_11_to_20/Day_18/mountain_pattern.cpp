@@ -60,5 +60,32 @@ int main() {
 #endif
 
     fastio();
+    int n; // row->i
+    cin>>n;
+    int i = n;
+    int j = n+(n-1);
+
+    for(int e=1;e<=i;e++){
+        int k=1;
+        for(int f=1;f<=j;f++){
+            if(f<=e or f>=(j+1)-e){
+                if(f < (j/2)+1){
+                    cout<<k<<"\t";
+                    k++;
+                }
+                else if(f==(j/2)+1){
+                    cout<<k<<"\t";
+                }
+                else if(f > (j/2)+1){
+                    k--;
+                    cout<<k<<"\t";
+                }
+            }
+            else{
+                cout<<"\t";
+            }
+        }
+        cout<<nline;
+    }
 
 }

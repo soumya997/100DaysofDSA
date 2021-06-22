@@ -60,5 +60,43 @@ int main() {
 #endif
 
     fastio();
+    // int i=0,j=1;
+    // int fibo;
+    // int n;
+    // cin>>n;
+    // cout<<i<<nline;
+    // for(int k=2;k<=n;k++){
+    //     while(k--){
+    //         fibo = i+j;
+    //         cout<<fibo<<"\t";
+    //         i=j;
+    //         j=fibo;
+    //     }
+    //     cout<<nline;
+    // }
+    int i=0,j=1;
+    int fibo;
+    int n;
+    cin>>n;
+    cout<<i<<nline;
+    cout<<j<<"\t"<<i+j;
+    for(int k=3;k<=n;k++){
+        while((k--)>0){
+            fibo = i+j;
+            cout<<fibo<<"\t";
+            i=j;
+            j=fibo;
+        }
+
+    }
 
 }
+
+// int main() {
+// #ifndef ONLINE_JUDGE
+//     freopen("errorf.in", "w", stderr);
+// #endif
+
+//     fastio();
+//     cout<<"hi";
+// }

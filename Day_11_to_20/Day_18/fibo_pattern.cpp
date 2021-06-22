@@ -60,5 +60,56 @@ int main() {
 #endif
 
     fastio();
+    int i=0,j=1;
+    int fibo;
+    int n;
+    cin>>n;
 
+    for(int k=1;k<=n;k++){
+       for(int l = 1;l<=k;l++){
+            cout<<i<<"\t";
+            fibo = i+j;
+            i = j;
+            j = fibo;
+        }
+        cout<<nline;
+    }
+    /*
+    Print fibonachi:
+            n=5;
+            for(int l = 1;l<=n;l++){
+                    cout<<i<<"\t";
+                    fibo = i+j;
+                    i = j;
+                    j = fibo;
+                }
+            #output -> 0    1   1   2   3   #
+
+    lession learned:
+            while printing fibonachi, print i, and after that update the fibo/sum, i and j;
+    */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -127,7 +127,76 @@ int main(){
 
 }
 ```
+## Access an element of a vector;
+```cpp
+vector<int> d{1,2,3,4,5,6};
+cout<<d[4];
+>>> 5
+```
+## slicing of vector:
+This can easily be done using std::vector's copy constructor:
+```cpp
+v2 = std::vector<int>(v1.begin() + 1, v1.end());
+```
 
+```cpp
+// C++ program for the above approach
+#include "bits/stdc++.h"
+using namespace std;
+
+// Template class to slice a vector
+// from range X to Y
+template <typename T>
+vector<T> slicing(vector<T> const& v,
+                int X, int Y)
+{
+
+    // Begin and End iterator
+    auto first = v.begin() + X;
+    auto last = v.begin() + Y + 1;
+
+    // Copy the element
+    vector<T> vector(first, last);
+
+    // Return the results
+    return vector;
+}
+
+// Template class to print the element
+// in vector v
+template <typename T>
+void printResult(vector<T> const& v)
+{
+
+    // Traverse the vector v
+    for (auto i : v) {
+        cout << i << ' ';
+    }
+    cout << '\n';
+}
+
+// Driver Code
+int main()
+{
+
+    // Given vector
+    vector<int> arr = { 1, 3, 4, 2,
+                        4, 2, 1 };
+
+    // Given range
+    int X = 2, Y = 5;
+
+    // To store the sliced vector
+    vector<int> ans;
+
+    // Function Call
+    ans = slicing(arr, X, Y);
+
+    // Print the sliced vector
+    printResult(ans);
+}
+>>>4 2 4 2
+```
 ## iterate over vector
 ```cpp
 int main(){
@@ -170,7 +239,7 @@ int main(){
 }
 
 ```
-- different ways of knowing the size of a vector
+## different ways of knowing the size of a vector:
 ```cpp
 int main(){
     vector<int> v;

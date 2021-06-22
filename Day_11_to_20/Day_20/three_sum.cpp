@@ -54,11 +54,92 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
+// class Solution {
+// public:
+//     vector<vector<int>> threeSum(vector<int>& nums) {
+//         int cs = 0;
+//         int n = nums.size();
+//         for(int i=0;i<nums.size();i++){
+//             int k=i+1;
+//             int l = n-1;
+//             int req_sum =
+//             while(k<=l){
+
+//             }
+//         }
+//         return v;
+//     }
+// };
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
+    // Solution sol;
+    vector<int> nums{1,2,3,4,5,6,7,8,9,15};
+    int key = 18;
+    // auto result = sol.threeSum(v);
+    // for(auto i:result){
+    //     for(auto j:i){
+    //         cout<<j;
+    //     }
+    //     cout<<nline;
+    // }
+    // int cs;
+    int n = nums.size();
+    sort(nums.begin(),nums.end());
+    for(int i=0;i<nums.size()-3;i++){
+        int k=i+1;
+        int l = n-1;
+        int req_sum = key - nums[i];
+        while(k<l){
+            int cs = nums[i];
+            cs += nums[k];
+            cs += nums[l];
+            if(cs==key){
+                cout<<nums[i]<<","<<nums[k]<<","<<nums[l]<<nline;
+                k++;
+                l--;
+            }
+            else if(cs>key){
+                l--;
+            }
+            else if(cs<key){
+                k++;
+            }
+        }
+    }
+    /*
+        logic:
+            you are iterating on every element of the array
+            and for each element we will perform pair sum, and will
+            check that if the sum of the pair and the array element
+            is equla to the key or not.
 
+            In our case we used two pointer approach to solve the pair sum
+            problem.
+    */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

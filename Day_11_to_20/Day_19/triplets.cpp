@@ -60,5 +60,18 @@ int main() {
 #endif
 
     fastio();
+    /*
+        Input: nums = [-1,0,1,2,-1,-4]
+        Output: [[-1,-1,2],[-1,0,1]]
+
+        1st:
+            we can use brute force solution with
+            3 for loops, but some test case wont pass
+        2nd:
+            loop over the array, for each element, use
+            two pointer for rest of the array
+
+
+    */
 
 }

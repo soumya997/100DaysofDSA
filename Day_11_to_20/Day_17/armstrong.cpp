@@ -19,8 +19,6 @@ using namespace std;
 #define set_bits __builtin_popcountll
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
-
 
 typedef long long ll;
 typedef long long int lli;
@@ -52,7 +50,6 @@ template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_prin
 template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
-/*===============================================================================================================================*/
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -60,5 +57,27 @@ int main() {
 #endif
 
     fastio();
+    long long int num;
+    cin>>num;
+    int demo = num;
+    debug(num);
+    int len = to_string(num).length();
+    int k=len;
+    long long int sum=0;
+    while(len!=0){
+        int last=num%10;
+        sum += pow(last,k);
+        num /= 10;
+        len--;
+    }
+
+    // cout<<sum;
+    if(sum==demo){
+        cout<<"true";
+    }
+    else if(sum!=demo){
+        cout<<"false";
+    }
+
 
 }

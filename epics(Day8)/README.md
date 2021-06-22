@@ -99,3 +99,46 @@ In future I wish to work on this, But after doing a bit searching in youtube I h
 - https://blog.codingblocks.com/
 - https://codeforces.com/blog/entry/23054
 - https://journeywithdp.blogspot.com/
+- https://afteracademy.com/blogs
+- https://medium.com/afteracademy
+
+
+## ERROR: inputf.in: file format not recognized; treating as linker script:
+```
+C;/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/ld.exe:D:\Documents\100DaysofDSA\Day_11_to_20\Day_17\inputf.in: file format not recognized; treating as linker script c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/ld.exe:D:\Documents\100DaysofDSA\Day_11_to_20\Day_17\inputf.in:1: syntax error collect2.exe: error: ld returned 1 exit status
+```
+
+Yeah man, this is it, this it itttt mah man...this is the error always keep bugging me, I know you are also frusted by watching that again and again. So here is what I found out while solving the problem,
+
+1. check your c++ build system, there might be some typo or something like additional spaces or something. Check this [stackoverflow](https://stackoverflow.com/questions/60803865/how-to-use-mingw-with-a-build-system-in-sublime-text). 
+2. If you are using the `c++ single file` then try to switch to `c++14` or `c++17` build system.
+**Here is the c++14 build system:**  
+```
+{
+"cmd": ["g++.exe","-std=c++14", "${file}", "-o", "${file_base_name}.exe", "&&" , "${file_base_name}.exe<inputf.in>outputf.in"],
+"selector":"source.cpp",
+"shell":true,
+"working_dir":"$file_path"
+}
+```
+**Here is the c++17 build tools:**
+```
+{
+"cmd": ["g++.exe",
+ "-std=c++17", "${file}",
+  "-o",
+   "${file_base_name}.exe",
+    "&&" ,
+     "${file_base_name}.exe<inputf.in>outputf.in"],
+"shell":true,
+"working_dir":"$file_path",
+"selector":"source.cpp"
+}
+```
+Just go to tools->build systems->new build system, then paste any on the build system code and save that according to the c++ version name.
+
+3. And the technique that was helpfull was to load the `inputf.in` and `outputf.in` file again. cut the tab from the sublime and again load the tab. And giving the input to the `inputf.in` move your curser to the respective cpp file, and then press `ctrl+B` to build.
+
+## Use of for loop and while loop:
+when you have certain condition, like untill this value becomes greater than some other value, or similar condition like that, then you use while loop and when you have to travers a path linearly with any kind of incriment then you use for loop.
+`while(i>j)` means untill i is greater than j the loop will run.

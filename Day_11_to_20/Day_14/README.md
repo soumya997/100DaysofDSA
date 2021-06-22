@@ -13,10 +13,17 @@ example of the problem that heap solves, 10k students appeared for a coding cont
 2. It should be a complete binary tree(CBT).(n.b: if all level of the tree are complet;y filled except last level, but filling should be left to right order.)
 3. Heap order property, maxheap and min heap.Heap order property for max/min says, every parent node in the heap will have high/low value than its children.
 
+<p align="center">
+    <img src="../../imgs/heap.png" width="500">
+</p>
 
 ## Hash Table:
 - It is an array of fixed size table
 - Array elements indexed by a key, which is mapped to an array index(0 to table-1)
+
+<p align="center">
+    <img src="../../imgs/hash_map.png" width="500">
+</p>
 
 ### Perpose:
 - To support insertion,deletion and search in average-case constant time.

@@ -19,8 +19,9 @@ using namespace std;
 #define set_bits __builtin_popcountll
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
-
+// find size of int array
+# define size(x) sizeof(x)/sizeof(int)
+#define deb(x) for(int i=0;i<sizeof(x)/sizeof(int);i++) cerr<<x[i]<<" ";
 
 typedef long long ll;
 typedef long long int lli;
@@ -53,12 +54,75 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+// Function area //
+void pair_search(int arr[],int s,int n){
+    int k;
+    sort(arr,arr+n);        // -6 1 10
+    int vidx,vjdx;
+    // O(NlogN) approach
+    for(int i=0;i<n;i++){
+        k = s -  arr[i];
+        if(k != arr[i]){
+            auto it = find(arr,arr+n,k);
+            int idx = it - arr;
+            cout<<arr[idx]<<" "<<arr[i]<<nline;
+            break; // as it says to print only the 1st pair
+        }
+    }
+}
 
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
+    int n,s;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    cin>>s;
+    // [10,5,2,3,-6,9]
+    // 4  -> [10,-6]
+    // O(N^2) approach
+    // https://afteracademy.com/blog/check-for-pair-in-an-array-with-a-given-sum
+    debug(s)
+    for(int i=0;i<size(arr);i++){
+        for(int j=i+1;j<size(arr);j++){
+            debug(i)
+            debug(j)
+            if(arr[i]+arr[j]==s){
+                cout<<arr[i]<<" "<<arr[j]<<nline;
+            }
+
+        }
+    }
+
+    // uncomment to use the binary search implementation
+    // pair_search(arr,s,n);
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,11 @@
 - It works in FIFO(first in first out) order.
 - push happens from the back and pop happens from the front.
 
+<p align="center">
+    <img src="../../imgs/queue1.png" width="500">
+</p>
+
+
 ```cpp
 #include <iostream>
 #include <array>
@@ -76,6 +81,11 @@ int main(){
 ```
 ## queue implelntation using Linkedlist;
 - If we use linkedlist for creating the queue then its not possible that a queue will be full.
+
+<p align="center">
+    <img src="../../imgs/queue2.png" width="500">
+</p>
+
 ```cpp
 #include<list>      // doubly Linkedlist
 class queue{
@@ -151,6 +161,10 @@ e.g: file structure in a computer.
 - sibling: children of the same parent. here 10,3 is sibling then 1,6 is sibling etc.
 - leafnode: which dont have any children, eg 4,7 and 13.
 
+<p align="center">
+   <img src="../../imgs/bt1.png" width="500">
+</p>
+
 ### Build tree:
 top down approach, algorithm is like,
 1. build the root
@@ -189,6 +203,11 @@ void print_bt(node* root){
 <br>
 it is a process where we visit each node of a tree one times in some order.
 here visiting means reading the data of the node.There are two type of tree traversal,
+
+<p align="center">
+    <img src="../../imgs/bt2.png" width="500">
+</p>
+
 1. breadth first
     - Level order traversal
 2. Depth first
@@ -237,6 +256,11 @@ int height(node*root){
     - 1st calaculate the height
     - 2nd loop through each level and use `print_kth_level()` to print each level.
 - complexity of this algorithm is O(N^2)
+
+<p align="center">
+    <img src="../../imgs/bt3.png" width="500">
+</p>
+
 ```cpp
 void print_kth_level(noe*root,int k){
     if(root==NULL){

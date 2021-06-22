@@ -60,5 +60,54 @@ int main() {
 #endif
 
     fastio();
+    int k;
+    int peak;
+    int left;
+    int half1;
+    int l;
+    int count;
+    // int flag = 0;
+    int right;
+    int large=0;
+    vector<int> v{2,1,4,7,3,2,5,1};
+    for(int i=1;i<=v.size()-2;i++){
+        if(v[i-1]<v[i] && v[i]>v[i+1]){
+            l=i;
+            k=i;
+            peak = i;
+            count=1;
+            while(k>=1 && v[k]-v[k-1]>0){
+                k--;
+                count++;
+            }
+            // left = k;
+            // half1 = peak-left+1;
+
+
+            // cout<<left<<" "<<peak<<" ";
+            // cout<<nline;
+            // // cout<<"diff "<<peak-left+1;
+            // // cout<<nline;
+            while(peak<=v.size()-2 && v[peak+1]-v[peak]<0){
+                peak++;
+                // cout<<peak;
+                count++;
+            }
+            // right=peak;
+            // cout<<nline;
+            // cout<<"right "<<right;
+            // cout<<nline;
+            large = max(large,count);
+
+        }
+
+
+
+
+    }
+
+    cout<<large;
+
+
 
 }

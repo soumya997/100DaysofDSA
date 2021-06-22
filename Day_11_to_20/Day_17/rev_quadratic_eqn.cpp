@@ -19,8 +19,6 @@ using namespace std;
 #define set_bits __builtin_popcountll
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
-
 
 typedef long long ll;
 typedef long long int lli;
@@ -52,7 +50,6 @@ template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_prin
 template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
-/*===============================================================================================================================*/
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -61,4 +58,28 @@ int main() {
 
     fastio();
 
+    long int a,b,c;
+    cin>>a>>b>>c;
+
+    int discrim = (b*b-4*a*c);
+    // cout<<discrim<<nline;
+    // cout<<pow(b,2)-4*a*c<<nline;
+    if(discrim<0){
+        int root1 = (-b + sqrt(b^2 - 4*a*c))/2*a;
+        int root2 = (-b - sqrt(b^2 - 4*a*c))/2*a;
+        cout<<"Imaginary";
+        cout<<pow(root2,2)<<" "<<pow(root1,2);
+    }
+    else if(discrim==0){
+        int root1 = (-b + sqrt(b^2 - 4*a*c))/2*a;
+        int root2 = root1;
+        cout<<"Real and Equal";
+        cout<<root1<<" "<<root2;
+    }
+    else{
+        cout<<"Real and Distinct"<<nline;
+        int root1 = (-b + sqrt(discrim))/2*a;
+        int root2 = (-b - sqrt(discrim))/2*a;
+        cout<<root2<<" "<<root1;
+    }
 }
