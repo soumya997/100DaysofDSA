@@ -1,0 +1,137 @@
+// https://youtu.be/8ymiMHQPgZY
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+
+#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define MOD 1000000007
+#define MOD1 998244353
+#define INF 1e18
+#define nline "\n"
+#define pb push_back
+#define ppb pop_back
+#define mp make_pair
+#define ff first
+#define ss second
+#define PI 3.141592653589793238462
+#define set_bits __builtin_popcountll
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
+
+
+typedef long long ll;
+typedef long long int lli;
+typedef unsigned long long ull;
+typedef long double lld;
+// typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
+
+#ifndef ONLINE_JUDGE
+#define debug(x) cerr << #x <<" "; _print(x); cerr << endl;
+#else
+#define debug(x)
+#endif
+
+void _print(ll t) {cerr << t;}
+void _print(int t) {cerr << t;}
+void _print(string t) {cerr << t;}
+void _print(char t) {cerr << t;}
+void _print(lld t) {cerr << t;}
+void _print(double t) {cerr << t;}
+void _print(ull t) {cerr << t;}
+
+template <class T, class V> void _print(pair <T, V> p);
+template <class T> void _print(vector <T> v);
+template <class T> void _print(set <T> v);
+template <class T, class V> void _print(map <T, V> v);
+template <class T> void _print(multiset <T> v);
+template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.ff); cerr << ","; _print(p.ss); cerr << "}";}
+template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
+/*===============================================================================================================================*/
+
+
+// int findUnsortedSubarray(vector<int>& nums) {
+
+// }
+
+
+
+int main() {
+#ifndef ONLINE_JUDGE
+    freopen("errorf.in", "w", stderr);
+#endif
+
+    fastio();
+    vector<int> nums{2,1};
+
+    if(is_sorted(nums.begin(),nums.end())){
+        return 0;
+    }
+    int n= nums.size();
+    if(n<=1){
+        return 0;
+    }
+    // cout<<n<<nline;
+    vector<int> nums1(nums);
+    vector<int> flag(n,0);
+    sort(nums1.begin(),nums1.end());
+    int count = 1;
+    for(int i=0;i<n;i++){
+        if(nums[i]-nums1[i]){
+            flag[i] = 1;
+        }
+
+        // cout<<nums[i]-nums1[i]<<" ";
+    }
+    // kadans algo
+    int cs = 0;
+    int ms =0;
+    for(int i=0;i<flag.size();i++){
+        cs = cs + flag[i];
+        ms = max(ms,cs);
+    }
+    cout<<"max "<<ms<<nline;
+    int fla = 0;
+    int left,right;
+    for(int i=0;i<n;i++){
+        int sum_a = 0;
+        for(int j=i;j<=n;j++){
+            for(int k=i;k<=j;k++){
+                sum_a = sum_a + flag[k];
+                if(sum_a==ms){
+                    left = i;
+                    right = j;
+                    // cout<<nline<<"right"<<right;
+                    goto jump;
+                }
+
+            }
+        }
+    }
+
+jump:
+    // cout<<nline;
+    // // cout<<left<<" "<<right;
+    cout<<"ans is "<<right+1;
+
+    cout<<nline;
+    for(auto i:nums){
+        cout<<i<<" ";
+    }
+    cout<<nline;
+    for(auto i:nums1){
+        cout<<i<<" ";
+    }
+    cout<<nline;
+    for(auto i:flag){
+        cout<<i<<" ";
+    }
+    cout<<nline;
+    cout<<flag.size();
+
+}
