@@ -54,12 +54,38 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+int arrayProduct(vector<int>& v){
+    int initialProduct = 1;
+    return accumulate(v.begin(), v.end(), initialProduct, multiplies<int>());
+}
 
+auto increment(int n,vector<int>::iterator it){
+    for(int i=0;i<n;i++){
+        it++;
+    }
+    return it;
+}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-
+    vector<int> nums{-1,1,0,-3,3};
+    int l = nums.size();
+    vector<int> arr(10000);
+    for(int i=0;i<nums.size();i++){
+        vector<int> nums1(nums);
+        vector<int>::iterator it = nums1.begin();
+        auto inc = increment(i,it);
+        nums1.erase(inc);
+        vector<int> after_ers(nums1);
+        arr[i] = arrayProduct(after_ers);
+    vector<int> v;
+    for(int i=0;i<l;i++){
+        v[i] = arr[i];
+    }
+    for(auto p:v){
+        cout<<p<<" ";
+    }
 }

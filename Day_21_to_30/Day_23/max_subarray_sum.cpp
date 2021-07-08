@@ -54,6 +54,23 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+// LC-53. Maximum Subarray //
+/*===============================================================================================================================*/
+
+int maxSubArray(vector<int>& nums) {
+        int ms =INT_MIN;
+        int cs = 0;
+        int n= nums.size();
+        for(int i=0;i<n;i++){
+            cs = cs + nums[i];
+            ms = max(ms,cs);
+            if(cs<0){
+                cs = 0;
+            }
+        }
+        return ms;
+    }
+
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -61,5 +78,9 @@ int main() {
 #endif
 
     fastio();
+    // -2,1,-3,4,-1,2,1,-5,4
+    vector<int> nums{5,4,-1,7,8};
+    int ans = maxSubArray(nums);
+    cout<<ans;
 
 }
