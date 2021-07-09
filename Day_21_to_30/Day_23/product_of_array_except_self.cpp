@@ -65,27 +65,102 @@ auto increment(int n,vector<int>::iterator it){
     }
     return it;
 }
-int main() {
+
+// int main() {
+// #ifndef ONLINE_JUDGE
+//     freopen("errorf.in", "w", stderr);
+// #endif
+
+//     fastio();
+//     vector<int> nums{-1,1,0,-3,3};
+//     int l = nums.size();
+//     vector<int> arr(10000);
+//     for(int i=0;i<nums.size();i++){
+//         vector<int> nums1(nums);
+//         vector<int>::iterator it = nums1.begin();
+//         auto inc = increment(i,it);
+//         nums1.erase(inc);
+//         vector<int> after_ers(nums1);
+//         arr[i] = arrayProduct(after_ers);
+//     vector<int> v;
+//     for(int i=0;i<l;i++){
+//         v[i] = arr[i];
+//     }
+//     for(auto p:v){
+//         cout<<p<<" ";
+//     }
+// }
+
+// int main(){
+// #ifndef ONLINE_JUDGE
+//     freopen("errorf.in", "w", stderr);
+// #endif
+//     fastio();
+
+
+//     vector<int> nums{-1,1,0,-3,3};
+//     int l = nums.size();
+//     vector<int> arr(l);
+//     for(int i=0;i<nums.size();i++){
+//         vector<int> nums1(nums);
+//         nums1[i] = 1;
+//         vector<int> after_ers(nums1);
+//         arr[i] = arrayProduct(after_ers);
+//     }
+
+//     // vector<int> v;
+//     // for(int i=0;i<l;i++){
+//     //     v[i] = arr[i];
+//     // }
+//     for(auto p:arr){
+//         cout<<p<<" ";
+//     }
+// }
+
+int main(){
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
-
     fastio();
-    vector<int> nums{-1,1,0,-3,3};
+    // precomputing
+    /*
+        https://youtu.be/9w2_CWmR0Iw
+        first compute the prefix arrar
+        and then create the result array. fill
+        up result array by multiplying prefix
+        element with the onthe fly calculated
+        postfix value.
+
+        Concept: its called precomputing, we are computing
+        pre and post array to solve the problem.
+
+        eg: input arr [1,2,3,4]
+            // pre array is the product of all element before that element
+            // for 1 pre product of all element is 1, for 2 its 1*1 = 1,
+            // for 3 it is 1*2=2, for 4 it is 1*2*3=6
+            pre array [1,1,2,6]
+            post array [24,12,8,6]
+
+    */
+    vector<int> nums{1,2,3,4};
     int l = nums.size();
-    vector<int> arr(10000);
-    for(int i=0;i<nums.size();i++){
-        vector<int> nums1(nums);
-        vector<int>::iterator it = nums1.begin();
-        auto inc = increment(i,it);
-        nums1.erase(inc);
-        vector<int> after_ers(nums1);
-        arr[i] = arrayProduct(after_ers);
-    vector<int> v;
-    for(int i=0;i<l;i++){
-        v[i] = arr[i];
+    vector<int> pre(l);
+    vector<int> ans(l);
+    pre[0] = 1;
+    int prefix = 1;
+    int postfix=1;
+    for(int i=1;i<l;i++){
+        pre[i] = prefix*nums[i-1];
+        prefix = pre[i];
     }
-    for(auto p:v){
-        cout<<p<<" ";
+
+    for(int i=l-1;i>=0;i--){
+        ans[i] = postfix*pre[i];
+        postfix *= nums[i];
     }
+
+    for(auto x:pre){
+        cout<<x<<" ";
+    }
+
 }
