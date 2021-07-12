@@ -13,11 +13,11 @@
     <a href="https://twitter.com/Soumya997Sarkar"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/Soumya997Sarkar?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@Soumya997Sarkar"></a>
 </p>
 
-I have scheduled a timeline for doing the base work for DSA/CP,[here]( https://www.notion.so/soumya997/DSA-Targets-2-week-plan-689460d1ba3848b19c000f41d9c29617)
+<!-- I have scheduled a timeline for doing the base work for DSA/CP,[here]( https://www.notion.so/soumya997/DSA-Targets-2-week-plan-689460d1ba3848b19c000f41d9c29617)
 - Learn topics basic topics of cp/DSA by **3rd June**,
 - practic basic problems topic wise from **4th to 15th June**.
 - After that practicing continues and participation in codeforces contests and codechef contests starts.
-
+ -->
 ## Topics:
 This table consists only the topics that I have learned during a day. 
 
