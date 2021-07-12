@@ -55,18 +55,80 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
+int compress(vector<char>& chars) {
+    // vector<char> chars={'a'};
+    vector<char> result;
+
+    int cnt=1;
+    int temp;
+    for(int i=0;i<chars.size();i++){
+        if(chars.size()<=1){
+            return chars.size();
+        }
+        if(chars[i]==chars[i+1]){
+            cnt++;
+            // cout<<cnt<<" ";
+        }
+        else if(chars[i] != chars[i+1]){
+            result.push_back(chars[i]);
+            // cout<<to_string(cnt);
+            // char sr = cnt;
+            // cout<<sr<<" ";
+            chars.push_back(to_string(cnt));
+            cnt=1;
+        }
+    }
+
+    return result.size();
+//     goto endp;
+// print:
+//     cout<<temp<<"bye";
+// endp:
+//     cout<<result.size()<<"hi";
+}
+
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    vector<int> nums{1,2,3};
-    vector<vector<int>> index;
-    for(int i=0;i<nums.size();i++){
-        for(int j=0;j<=i;j++){
-            cout<<nums[j]<<" ";
-        }
-        cout<<nline;
-    }
+    vector<char> chars= {'a','a','b','b','c','c','c'};
+    // vector<char> chars={'a'};
+    cout<<compress(chars);
+    //     vector<char> result;
+
+//     int cnt=1;
+//     int temp;
+//     for(int i=0;i<chars.size();i++){
+//         if(chars.size()<=1){
+//             temp = chars.size();
+//             goto print;
+//         }
+//         if(chars[i]==chars[i+1]){
+//             cnt++;
+//             // cout<<cnt<<" ";
+//         }
+//         if(chars[i] != chars[i+1]){
+//             result.push_back(chars[i]);
+//             // cout<<to_string(cnt);
+//             char sr = cnt;
+//             // cout<<sr<<" ";
+//             result.push_back(sr);
+//             cnt=1;
+//         }
+//     }
+
+//     goto endp;
+// print:
+//     cout<<temp<<"bye";
+// endp:
+//     cout<<result.size()<<"hi";
+    // for(auto x:result){
+    //     cout<<x<<" ";
+    // }
+    // cout<<nline;
+
+
 }

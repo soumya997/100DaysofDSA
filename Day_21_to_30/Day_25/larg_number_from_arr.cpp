@@ -54,19 +54,31 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
-
+//https://leetcode.com/problems/largest-number/discuss/1270419/A-big-edge-case-revealed!!-Fully-explained-code!
+static bool cmp(string a,string b){
+    return a+b > b+a;
+}
+string largestNumber(vector<int>& nums){
+    vector<string> strcontain;
+    for(int i : nums)  strcontain.push_back(to_string(i)); //convert all nums to char/string
+    sort(strcontain.begin(),strcontain.end(),cmp);
+    // print_vec(strcontain);
+    cout<<nline;
+    string result;
+    for(int i=0;i<strcontain.size();i++)  result+=strcontain[i];
+    // print_vec()
+    // if you dont write this line the for i/p [0,0] output will be
+    // "00" but expected is "0"
+    string res = result[0]=='0'? "0" : result;
+    // cout<<result[0]<<nline;
+    return res;
+}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    vector<int> nums{1,2,3};
-    vector<vector<int>> index;
-    for(int i=0;i<nums.size();i++){
-        for(int j=0;j<=i;j++){
-            cout<<nums[j]<<" ";
-        }
-        cout<<nline;
-    }
+    vector<int> arr{0,0,0};
+    cout<<largestNumber(arr);
 }

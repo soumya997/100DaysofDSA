@@ -54,19 +54,83 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
-
+bool lower(string arr){
+    // bool flag = false;
+    int len1 = 0;
+    for(int i=0;i<arr.length();i++){
+        if(islower(arr[i])){
+            // flag = true;
+            len1++;
+        }
+    }
+    if(len1 == arr.length()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+bool upper(string arr){
+    // bool flag = false;
+    int len1 = 0;
+    for(int i=0;i<arr.length();i++){
+        if(isupper(arr[i])){
+            // flag = true;
+            len1++;
+        }
+    }
+    if(len1 == arr.length()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+bool detectCapitalUse(string word) {
+    bool res = isupper(word[0]) and lower(word.substr(1,word.length()));
+    if(upper(word) or lower(word) or res){
+        cout<<"1 true";
+        return true;
+    }
+    else{
+        cout<<"1 false";
+        return false;
+    }
+    // if(isupper(word[0]) and lower(word.substr(1,word.length()))){
+    //     cout<<word[0];
+    //     cout<<nline;
+    //     return true;
+    // }
+    // else{
+    //     cout<<"2 true";
+    //     return false;
+    // }
+}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    vector<int> nums{1,2,3};
-    vector<vector<int>> index;
-    for(int i=0;i<nums.size();i++){
-        for(int j=0;j<=i;j++){
-            cout<<nums[j]<<" ";
-        }
-        cout<<nline;
+    string arr = "Leetcode";
+    // int len = arr.length();
+    // if(upper(arr) or lower(arr)){
+    //     return true;
+    // }
+    // else{
+    //     return false;
+    // }
+    // if(upper(arr[0]) and lower(arr.substr(1,arr.length()))){
+    //     return true;
+    // }
+    // else{
+    //     return false;
+    // }
+    bool ans = detectCapitalUse(arr);
+    if(ans){
+        cout<<"hi";
+    }
+    else{
+        cout<<"bye";
     }
 }
