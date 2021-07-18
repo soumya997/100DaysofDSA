@@ -55,104 +55,42 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
-// int compress(vector<char>& chars) {
-//     // vector<char> chars={'a'};
-//     vector<char> result;
-
-//     int cnt=1;
-//     int temp;
-//     for(int i=0;i<chars.size();i++){
-//         if(chars.size()<=1){
-//             return chars.size();
-//         }
-//         if(chars[i]==chars[i+1]){
-//             cnt++;
-//             // cout<<cnt<<" ";
-//         }
-//         else if(chars[i] != chars[i+1]){
-//             result.push_back(chars[i]);
-//             // cout<<to_string(cnt);
-//             // char sr = cnt;
-//             // cout<<sr<<" ";
-//             // result.push_back(to_string(cnt));
-//             string s = cnt;
-//             for(string k:s){
-//                 result.push_back(k);
-//             }
-//             cnt=1;
-//         }
-
-//     }
-
-//     chars = result;
-//     for(auto i:chars){
-//         cout<<i<<" ";
-//     }
-
-//     return result.size();
-//     goto endp;
-// print:
-//     cout<<temp<<"bye";
-// endp:
-//     cout<<result.size()<<"hi";
-// }
-
-int compress(vector<char>& chars) {
-    int i = 0;
-    for(int j = 1, count = 1; j <= chars.size(); j++, count++) {
-        if(j == chars.size() || chars[j] != chars[j - 1]) {
-            chars[i++] = chars[j - 1];
-            if(count >= 2)
-                for(char digit : to_string(count))
-                    chars[i++] = digit;
-            count = 0;
-        }
-    }
-    return i;
-}
-
-
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    vector<char> chars= {'a','a','b','b','c','c','c'};
-    // vector<char> chars={'a'};
-    cout<<compress(chars);
-    //     vector<char> result;
+    string text = "leet code";
+    string brokenLetters = "e";
 
-//     int cnt=1;
-//     int temp;
-//     for(int i=0;i<chars.size();i++){
-//         if(chars.size()<=1){
-//             temp = chars.size();
-//             goto print;
-//         }
-//         if(chars[i]==chars[i+1]){
-//             cnt++;
-//             // cout<<cnt<<" ";
-//         }
-//         if(chars[i] != chars[i+1]){
-//             result.push_back(chars[i]);
-//             // cout<<to_string(cnt);
-//             char sr = cnt;
-//             // cout<<sr<<" ";
-//             result.push_back(sr);
-//             cnt=1;
-//         }
-//     }
+    stringstream ss(text);
+    string token;
+    vector<string> tokens;
+    while(getline(ss,token,' ')){
+        tokens.push_back(token);
+    }
 
-//     goto endp;
-// print:
-//     cout<<temp<<"bye";
-// endp:
-//     cout<<result.size()<<"hi";
-    // for(auto x:result){
-    //     cout<<x<<" ";
-    // }
-    // cout<<nline;
+    int cnt=0;
+    for(auto i:tokens){
+        cout<<i<<",";
+    }
+    for(int i=0;i<tokens.size();i++){
+        for(int j=0;j<brokenLetters.length();j++){
+            for(int k=0;k<tokens[i].length();k++){
+                if(tokens[i][k]==brokenLetters[j]){
+                    cnt++;
+                    i++;
+                    break;
+                }
+                else{
+                    continue;
+                }
+            }
+        }
+    }
 
+
+    cout<<cnt;
 
 }

@@ -19,10 +19,9 @@ using namespace std;
 #define set_bits __builtin_popcountll
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-#define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
+# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #define print_vec(x) for(auto i:x) cout<<i<<" "; // prints elements of an int vector
-#define str_to_int(x) stoi(x) // converts a string to an int
-#define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==0; })
+#define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==1; })
 
 
 typedef long long ll;
@@ -56,79 +55,68 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
-//https://leetcode.com/problems/largest-number/discuss/1270419/A-big-edge-case-revealed!!-Fully-explained-code!
-static bool cmp(string a,string b){
-    return a+b > b+a;
-}
-string largestNumber(vector<int>& nums){
-    vector<string> strcontain;
-    for(int i : nums)  strcontain.push_back(to_string(i)); //convert all nums to char/string
-    sort(strcontain.begin(),strcontain.end(),cmp);
-    // print_vec(strcontain);
-    cout<<nline;
-    string result;
-    for(int i=0;i<strcontain.size();i++)  result+=strcontain[i];
-    // print_vec()
-    // if you dont write this line the for i/p [0,0] output will be
-    // "00" but expected is "0"
-    string res = result[0]=='0'? "0" : result;
-    // cout<<result[0]<<nline;
-    return res;
-}
-string largest_number(vector<int>& nums) {
-        int x = 0;
-        for(int i=0;i<nums.size();i++){
-            if(nums[i] == 0){
-                x++;
-            }
-        }
-        if(x==nums.size()){
-            return "0";
-        }
-        vector<string> str(nums.size(),"");
-        for(int i=0;i<nums.size();i++){
-            str[i] = to_string(nums[i]);
-        }
+bool isSubsequence(string s, string t) {
 
-        sort(str.begin(),str.end(),cmp);
-        string s = "";
-        for(int i=0;i<str.size();i++){
-            s = s+str[i];
-        }
+    int i=s.length()-1;
+    int j=t.length()-1;
 
-        return s;
-}
-string largest_num(vector<int> arr){
-    if(check_all_zero(arr)){
-        return "0";
+
+    while(i>=0 and j>=0){
+        if(s[i]==t[j]){
+            i--;
+            j--;
+        }
+        // if(s[i]!=t[j]){
+        //     j--;
+        // }
+        else{
+                j--;
+        }
     }
+    if(i==-1){
+        return true;
+    }
+    return false;
 
-    for(int i=0;i<arr.size();i++){
-        if(arr[i])
-        for(int j=i+1;j<arr.size();j++){
-            string num1 = to_string(arr[i]);
-            string num2 = to_string(arr[j]);
-            if(str_to_int(num1+num2)>str_to_int(num2+num1)){
+}
+int main1() {
+#ifndef ONLINE_JUDGE
+    freopen("errorf.in", "w", stderr);
+#endif
+
+    fastio();
+    string s = "abc", t = "ahbgdc";
+    vector<int> flag(s.length(),0);
+    for(int i=0;i<t.length();i++){
+        for(int j=0;j<s.length();j++){
+            if(s[j]==t[i]){
+                flag[j] = 1;
+            }
+            else if(s[j]!=t[i]){
                 continue;
             }
-            else if(str_to_int(num1+num2)<str_to_int(num2+num1)){
-                swap(arr[j],arr[i]);
-            }
         }
     }
-    string ans = "";
-    for(auto i:arr){
-        ans = ans + to_string(i);
+    if(check_all_zero(flag)){
+        return true;
+    }
+    else{
+        return false;
     }
 
-    return ans;
 }
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    vector<int> arr{0,0,0};
-    cout<<largest_num(arr);
+    string s = "acb", t = "ahbgdc";
+    if(isSubsequence(s,t)){
+        cout<<"hi";
+    }
+    else{
+        cout<<"no";
+    }
 }
