@@ -41,6 +41,8 @@ example of the problem that heap solves, 10k students appeared for a coding cont
 
 ## Map STL:
 sometimes we need to store data in a key and value pairs, at that time we use map. There are two type of maps 1. ordered map, 2. unordered map
+
+#### 1. insertion:
 ```cpp
 int main(){
     map<string, int> m;
@@ -54,7 +56,13 @@ int main(){
     m.insert(p);
     //insert_3
     m["Banana"] = 20;
+}
+```
+#### 2. serach for an element: 
 
+count() if is the efficient one if you don't required the position in return. 
+
+```cpp
     // serach for an element
     string fruit;
     cin>>fruit;
@@ -66,6 +74,9 @@ int main(){
     else{
         cout<<"fruit is not present"<<endl;
     }
+```
+#### 3. another way of finging any element:
+```cpp
     //another special property
     // it stores key only ones, so m["banana"] = 10 will update the value of banana
 
@@ -76,11 +87,17 @@ int main(){
     else{
         cout<<"fruit is not present"<<endl;
     }
+```
+#### 4. erase key:
+```cpp
     // erase key, will remove the key value from the map
     m.erase(fruit);
     m["litchi"] = 60;
     m["pineapple"] = 20;
-
+```
+####  5. Iterate over map:
+map iterator is map<string,int>::iterator. this can be used for replacing auto.
+```cpp
     for(auto it=m.begin();it!=m.end();it++){
         cout<<it->first<<" and "<<it->second<<endl;
     }
