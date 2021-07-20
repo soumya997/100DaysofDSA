@@ -20,6 +20,7 @@ example of the problem that heap solves, 10k students appeared for a coding cont
 ## Hash Table:
 - It is an array of fixed size table
 - Array elements indexed by a key, which is mapped to an array index(0 to table-1)
+- A balanced binary search tree is used for implimenting a map.
 
 <p align="center">
     <img src="../../imgs/hash_map.png" width="500">
