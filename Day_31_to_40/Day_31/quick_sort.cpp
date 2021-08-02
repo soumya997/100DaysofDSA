@@ -55,45 +55,51 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
+int partition(vector<int> &a,int s,int e){
+
+    int pivot = a[e];
+    int i = s - 1;
+
+    for(int j=s;j<e;j++){
+        if(a[j] < pivot){
+            i++;
+            swap(a[i],a[j]);
+        }
+    }
+
+    swap(a[i+1],a[e]);
+    return i + 1;
+
+}
+
+void quicksort(vector<int> &a, int s,int e){
+    //Base Case
+    if(s>=e){
+        return;
+    }
+    //Rec Case
+    int p = partition(a,s,e);
+    quicksort(a,s,p-1);
+    quicksort(a,p+1,e);
+}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    vector<int> A = {1,2,3,0,0,0};
-    vector<int> B = {2,5,6};
-    int m=3;
-    int n=3;
+    vector<int> arr{10,5,2,0,7,6,4};
+    cout<< arr.size() <<endl;
+    int n = arr.size();
 
-    // for(int i=0;i<)
-    int i=0;
-    int j=0;
-    int cnt=0;
-    vector<int> v;
-    while(i<m and j<n){
-        if(A[i]<B[j]){
-            v.push_back(A[i]);
-            i++;
-        }
-        else{
-            v.push_back(B[j]);
-            j++;
-        }
+    quicksort(arr,0,n-1);
+
+    for(int x :arr){
+        cout << x << " ";
     }
-    while(j<n){
-        v.push_back(B[j]);
-        j++;
-    }
-    while(i<m){
-        v.push_back(A[i]);
-        i++;
-    }
-    int y=0;
-    for(int p=0;p<v.size();p++){
-        A[p] = v[y++];
-    }
-    for(auto k:A){
-        cout<<k<<",";
-    }
+
+    return 0;
+
 }
+

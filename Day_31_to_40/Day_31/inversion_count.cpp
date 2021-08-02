@@ -55,45 +55,72 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
+int merge(vector<int> &array,int s,int e){
+    int i = s;
+    int m = (s+e)/2;
+    int j = m + 1;
+
+    vector<int> temp;
+
+    int cnt = 0;
+
+    while(i<=m and j<=e){
+        if(array[i] < array[j]){
+            temp.push_back(array[i]);
+            i++;
+        }
+        else{
+            cnt += (m - i + 1);
+            temp.push_back(array[j]);
+            j++;
+        }
+    }
+
+    //copy rem elements from first array
+    while(i<=m){
+        temp.push_back(array[i++]);
+    }
+
+    // or copy rem elements from second array
+    while(j<=e){
+        temp.push_back(array[j++]);
+    }
+
+    //copy back the eleemtns from temp to original array
+    int k = 0 ;
+    for(int idx = s; idx <=e ;idx++){
+        array[idx] = temp[k++];
+    }
+    return cnt;
+}
+
+//sorting method
+int inversion_count(vector<int> &arr,int s,int e){
+    //base case
+    if(s>=e){
+        return 0;
+    }
+    //rec case
+    int mid = (s+e)/2;
+    int C1 = inversion_count(arr,s,mid);
+    int C2 = inversion_count(arr,mid+1,e);
+    int CI =  merge(arr,s,e);
+    return C1 + C2 + CI;
+}
+
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    vector<int> A = {1,2,3,0,0,0};
-    vector<int> B = {2,5,6};
-    int m=3;
-    int n=3;
+    vector<int> arr{0,5,2,3,1};
 
-    // for(int i=0;i<)
-    int i=0;
-    int j=0;
-    int cnt=0;
-    vector<int> v;
-    while(i<m and j<n){
-        if(A[i]<B[j]){
-            v.push_back(A[i]);
-            i++;
-        }
-        else{
-            v.push_back(B[j]);
-            j++;
-        }
-    }
-    while(j<n){
-        v.push_back(B[j]);
-        j++;
-    }
-    while(i<m){
-        v.push_back(A[i]);
-        i++;
-    }
-    int y=0;
-    for(int p=0;p<v.size();p++){
-        A[p] = v[y++];
-    }
-    for(auto k:A){
-        cout<<k<<",";
-    }
+    int s = 0;
+    int e = arr.size()-1;
+    cout<< inversion_count(arr,s,e) <<endl;
+
+    cout<<endl;
+    return 0;
 }

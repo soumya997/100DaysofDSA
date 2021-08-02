@@ -55,11 +55,73 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
+void merge_arr(vector<int> &arr,int s,int e){
+    int i=s;
+    int mid = (s+e)/2;
+    int j = mid+1;
+
+    vector<int> temp;
+    while(i<=mid and j<=e){
+        if(arr[i]<arr[j]){
+            temp.push_back(arr[i]);
+            i++;
+        }
+        else{
+            temp.push_back(arr[j]);
+            j++;
+        }
+    }
+    while(i<=mid){
+        temp.push_back(arr[i]);
+        i++;
+    }
+
+    while(j<=e){
+        temp.push_back(arr[j]);
+        j++;
+    }
+
+    int idx=0;
+    for(int k=s;k<=e;k++){
+        arr[k] = temp[idx++];
+    }
+
+    return;
+
+
+
+}
+
+
+void merge_sort(vector<int> & arr,int s,int e){
+    //base case
+    if(s>=e){      // this says that is there is only one element present in the arr
+                   // you cant actually say "arr.size()==1" instade of "s>=e".
+        return;
+    }
+
+    int mid = (s+e)/2;
+    merge_sort(arr,s,mid);
+    merge_sort(arr,mid+1,e);
+
+    return merge_arr(arr,s,e);
+
+
+}
+
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
+    // merge sort is an recursive algorithm, and its hard
+    vector<int> arr{2,52,6,42,1235,51};
+    merge_sort(arr,0,arr.size()-1);
+
+    for(auto k:arr){
+        cout<<k<<" ";
+    }
 
 }
