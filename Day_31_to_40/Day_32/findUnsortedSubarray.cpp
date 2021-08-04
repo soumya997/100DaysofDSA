@@ -54,46 +54,46 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+// bool sort_check(vector<int> nums){
+//     bool flag = false;
+//     for(int i=0;i<nums.size();i++){
+//         if(nums[i+1]>=nums[i]){
+//             flag = true;
+//         }
+//         else{
+//             flag = false;
+//         }
+//     }
+//     return flag;
+// }
 
-int main() {
-#ifndef ONLINE_JUDGE
-    freopen("errorf.in", "w", stderr);
-#endif
-
-    fastio();
-    string num2 = "9";
-    string num1 = "1";
-
-    int i = num1.size() - 1;
-    int j = num2.size() - 1;
-    int carry = 0;
-    string res = "";
-    while(i>=0 || j>=0 || carry){
-        long sum = 0;
-        if(i >= 0){
-            sum += (num1[i] - '0');
-            i--;
-        }
-        if(j >= 0){
-            sum += (num2[j] - '0');
-            j--;
-        }
-
-        sum += carry;
-        carry = sum / 10;
-        sum = sum % 10;
-        res =  res + to_string(sum);
+int findUnsortedSubarray(vector<int>& nums) {
+    // vector<pair<int,int>> temp;
+    vector<int> temp;
+    vector<int> g{1,2,3,4};
+    if(is_sorted(nums.begin(),nums.end())){
+        return 0;
     }
-    reverse(res.begin(), res.end());
-    cout<<res;
+    else{
+        int j = 0;
+        while(j<nums.size()-1){
+            if(nums[j+1]>=nums[j]){
+                j++;
+            }
+            else{
+                swap(nums[j+1],nums[j]);
+                temp.push_back(j);
+                j++;
+            }
+        }
 
-
-
+        return temp[temp.size()-1]+1 - temp[0] +1;
+    }
 }
-
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
+    
 #endif
 
     fastio();
@@ -101,3 +101,5 @@ int main() {
     cout<<findUnsortedSubarray(nums);
 
 }
+
+

@@ -54,50 +54,26 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
-
+bool compare(string x,string y){
+    return x + y < y + x;
+}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    string num2 = "9";
-    string num1 = "1";
+    string arr[] = {"a","ab","aba"};
+    int n = 3;
 
-    int i = num1.size() - 1;
-    int j = num2.size() - 1;
-    int carry = 0;
-    string res = "";
-    while(i>=0 || j>=0 || carry){
-        long sum = 0;
-        if(i >= 0){
-            sum += (num1[i] - '0');
-            i--;
-        }
-        if(j >= 0){
-            sum += (num2[j] - '0');
-            j--;
-        }
+    sort(arr,arr+n,compare);
 
-        sum += carry;
-        carry = sum / 10;
-        sum = sum % 10;
-        res =  res + to_string(sum);
+    for(auto s : arr){
+        cout <<s;
     }
-    reverse(res.begin(), res.end());
-    cout<<res;
 
 
 
+    return 0;
 }
 
-int main() {
-#ifndef ONLINE_JUDGE
-    freopen("errorf.in", "w", stderr);
-#endif
-
-    fastio();
-    vector<int> nums{1,2,3,4};
-    cout<<findUnsortedSubarray(nums);
-
-}

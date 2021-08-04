@@ -54,50 +54,47 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+bool searchMatrix(vector<vector<int>>& matrix, int target) {
+    int m = matrix.size();
+    int n = matrix[0].size();
 
-int main() {
-#ifndef ONLINE_JUDGE
-    freopen("errorf.in", "w", stderr);
-#endif
+    int i=0;
+    int j=0;
+    // for(int j=0;j<m;j++)
+    while(j<m){
+        if(target>=matrix[j][i] and target<matrix[j+1][i]){
+            for(int k=0;k<n;k++){
+                if(matrix[j][k] == target){
+                    cout<<matrix[j][k];
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
 
-    fastio();
-    string num2 = "9";
-    string num1 = "1";
-
-    int i = num1.size() - 1;
-    int j = num2.size() - 1;
-    int carry = 0;
-    string res = "";
-    while(i>=0 || j>=0 || carry){
-        long sum = 0;
-        if(i >= 0){
-            sum += (num1[i] - '0');
-            i--;
         }
-        if(j >= 0){
-            sum += (num2[j] - '0');
-            j--;
-        }
+        cout<<j<<nline;
 
-        sum += carry;
-        carry = sum / 10;
-        sum = sum % 10;
-        res =  res + to_string(sum);
     }
-    reverse(res.begin(), res.end());
-    cout<<res;
 
 
-
+    // return true;
 }
-
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    vector<int> nums{1,2,3,4};
-    cout<<findUnsortedSubarray(nums);
+    vector<vector<int>> matrix{{1,3,5,7},{10,11,16,20},{23,30,34,60}};
+    int target = 13;
+
+    if(searchMatrix(matrix,target)){
+        cout<<"hi";
+    }
+    else{
+        cout<<"no";
+    }
 
 }

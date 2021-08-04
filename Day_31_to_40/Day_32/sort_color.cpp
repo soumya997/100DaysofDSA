@@ -54,50 +54,45 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+void sortColors(vector<int>& nums) {
+    int cnt0 = 0;
+    int cnt1 = 0;
+    int cnt2 = 0;
 
-int main() {
-#ifndef ONLINE_JUDGE
-    freopen("errorf.in", "w", stderr);
-#endif
-
-    fastio();
-    string num2 = "9";
-    string num1 = "1";
-
-    int i = num1.size() - 1;
-    int j = num2.size() - 1;
-    int carry = 0;
-    string res = "";
-    while(i>=0 || j>=0 || carry){
-        long sum = 0;
-        if(i >= 0){
-            sum += (num1[i] - '0');
-            i--;
+    for(int i=0;i<nums.size();i++){
+        if(nums[i] == 0){
+            cnt0++;
         }
-        if(j >= 0){
-            sum += (num2[j] - '0');
-            j--;
+        else if(nums[i]==1){
+            cnt1++;
         }
-
-        sum += carry;
-        carry = sum / 10;
-        sum = sum % 10;
-        res =  res + to_string(sum);
+        else if(nums[i] == 2){
+            cnt2++;
+        }
     }
-    reverse(res.begin(), res.end());
-    cout<<res;
 
-
-
+    for(int j=0;j<nums.size();j++){
+        if(j<cnt0){
+            nums[j] = 0;
+        }
+        else if(j>=cnt0 and j<cnt1+cnt0){
+            nums[j] = 1;
+        }
+        else if(j>=cnt1+cnt0 and j<cnt2+cnt0+cnt1){
+            nums[j] = 2;
+        }
+    }
 }
-
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    vector<int> nums{1,2,3,4};
-    cout<<findUnsortedSubarray(nums);
+    vector<int> nums{2,0,2,1,1,0};
+    sortColors(nums);
+    for(auto i:nums){
+        cout<<i<<",";
+    }
 
 }

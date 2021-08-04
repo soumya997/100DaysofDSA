@@ -54,50 +54,50 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+int partition(vector<int> &arr,int s,int e){
+    int p = e;
+    int i = s-1;
 
-int main() {
-#ifndef ONLINE_JUDGE
-    freopen("errorf.in", "w", stderr);
-#endif
-
-    fastio();
-    string num2 = "9";
-    string num1 = "1";
-
-    int i = num1.size() - 1;
-    int j = num2.size() - 1;
-    int carry = 0;
-    string res = "";
-    while(i>=0 || j>=0 || carry){
-        long sum = 0;
-        if(i >= 0){
-            sum += (num1[i] - '0');
-            i--;
+    for(int j=s;j<e;j++){
+        if(arr[j]<arr[p]){
+            i++;
+            swap(arr[i],arr[j]);
         }
-        if(j >= 0){
-            sum += (num2[j] - '0');
-            j--;
-        }
-
-        sum += carry;
-        carry = sum / 10;
-        sum = sum % 10;
-        res =  res + to_string(sum);
     }
-    reverse(res.begin(), res.end());
-    cout<<res;
+    swap(arr[i+1],arr[p]);
+
+    return i+1;
+}
 
 
+int quick_search(vector<int> arr,int k,int s,int e){
+    int p = partition(arr,s,e);
+    if(p==k){
+        return arr[p];
+    }
+
+    if(k>p){
+        return quick_search(arr,k,p+1,e);
+    }
+    else{
+        return quick_search(arr,k,s,p-1);
+    }
 
 }
 
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-    vector<int> nums{1,2,3,4};
-    cout<<findUnsortedSubarray(nums);
+    // vector<int> arr{10,5,2,0,7,6,4};
+    vector<int> arr{10,5,2,0,7,6,4};
+    // cout<< arr.size() <<endl;
+    int n = arr.size();
+    int k=4;
+
+    cout<<quick_search(arr,k,0,n-1);
 
 }

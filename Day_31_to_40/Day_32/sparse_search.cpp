@@ -54,42 +54,45 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+int sparse_search(string a[],int n,string key){
 
-int main() {
-#ifndef ONLINE_JUDGE
-    freopen("errorf.in", "w", stderr);
-#endif
-
-    fastio();
-    string num2 = "9";
-    string num1 = "1";
-
-    int i = num1.size() - 1;
-    int j = num2.size() - 1;
-    int carry = 0;
-    string res = "";
-    while(i>=0 || j>=0 || carry){
-        long sum = 0;
-        if(i >= 0){
-            sum += (num1[i] - '0');
-            i--;
+    // sparse search
+    int s=0;
+    int e = n-1;
+    while(s<=e){
+        int mid = (s+e)/2;
+        int mid_left = mid - 1;
+        int mid_right = mid + 1;
+        if(a[mid]==""){
+            while(1){
+                if(mid_left<s and mid_right>e){
+                    return -1;
+                }
+                else if(mid_right<=e and a[mid_right]!=""){
+                    mid = mid_right;
+                    break;
+                }
+                else if(mid_left>=s and a[mid_left]!=""){
+                    mid = mid_left;
+                    break;
+                }
+                mid_left--;
+                mid_right++;
+            }
         }
-        if(j >= 0){
-            sum += (num2[j] - '0');
-            j--;
+        if(a[mid]==key){
+            return mid;
         }
-
-        sum += carry;
-        carry = sum / 10;
-        sum = sum % 10;
-        res =  res + to_string(sum);
+        else if(a[mid] > key){
+            e = mid - 1;
+        }
+        else{
+            s = mid + 1;
+        }
     }
-    reverse(res.begin(), res.end());
-    cout<<res;
-
-
-
+    return -1;
 }
+
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -97,7 +100,15 @@ int main() {
 #endif
 
     fastio();
-    vector<int> nums{1,2,3,4};
-    cout<<findUnsortedSubarray(nums);
+    string arr[] = {"ai", "", "","bat", "","","car","cat","","","dog",""};
+    int n = 12;
 
+    string f;
+    cin>>f;
+    cout<<sparse_search(arr,n,f)<<endl;
+
+
+    return 0;
 }
+
+
