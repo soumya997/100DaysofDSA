@@ -54,6 +54,9 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+//  https://leetcode.com/problems/kth-largest-element-in-an-array/
+/*===============================================================================================================================*/
+
 int partition(vector<int> &arr,int s,int e){
     int p = e;
     int i = s-1;
@@ -70,17 +73,17 @@ int partition(vector<int> &arr,int s,int e){
 }
 
 
-int quick_search(vector<int> arr,int k,int s,int e){
+int quick_select(vector<int> arr,int k,int s,int e){
     int p = partition(arr,s,e);
     if(p==k){
         return arr[p];
     }
 
     if(k>p){
-        return quick_search(arr,k,p+1,e);
+        return quick_select(arr,k,p+1,e);
     }
     else{
-        return quick_search(arr,k,s,p-1);
+        return quick_select(arr,k,s,p-1);
     }
 
 }
@@ -98,6 +101,6 @@ int main() {
     int n = arr.size();
     int k=4;
 
-    cout<<quick_search(arr,k,0,n-1);
+    cout<<quick_select(arr,k,0,n-1);
 
 }
