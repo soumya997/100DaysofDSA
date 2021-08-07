@@ -50,5 +50,10 @@ This img explains how the partition function is working.
 
 ![merge sort1](../../imgs/quick3.png)
 
+# Questions:
+1. https://www.geeksforgeeks.org/counting-inversions/
+Ans: [1st](https://github.com/soumya997/100DaysofDSA/blob/main/Day_31_to_40/Day_31/inversion_count.cpp) solution has a complaxity of O(NlogN).
+The [brut fource](https://github.com/soumya997/100DaysofDSA/blob/main/Day_31_to_40/Day_31/Inversion_count_brut.cpp) is a O(N^2) approach.
+
 
 
