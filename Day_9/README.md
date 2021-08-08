@@ -6,7 +6,7 @@
 ### Technique to solve Recursive problems:
 There is two parts of recursive solution,
 
-- Base Case (other wise program will keep on running untill it hits the memory limit, in other words its called **segmentation fault**)
+- Base Case (other wise program will keep on running untill it hits the memory limit, in other words its called **segmentation fault**). Base case is nothing but the smallest basecase, which is known to us. Like in factorial we know 0! = 1, or in calculating power of a number we know n^0 = 1(for power =0, it will always return 1).
 - Recursive case ( works toward base case) 
 ```
 ===============================================================================
@@ -64,3 +64,5 @@ As you can see in the picture, there are two calls happens, one is `top down cal
 
 Function calls happens via call stack, the rectengle represents the call stack. and in thaat call stack we have main func and all the variables associated with the func are in stack memory, bcoz of that N is all the stacks, when `Factorial()` gets called a stack memory gets assigned to the `Factorial()` where N=5, then internally the afain `Factorial()` call happens(in the small_ans line) and it gets a stack memory too, but N is now 5-1=4;but value of `Factorial(4)` is unknown, so again function call happens, and this goes on untill it hit the base case, when it hit the base case it returns some value, and the stack memory gets deleted(the top memory), and this returned value gets passed to smaller problem (below stack function calls where N=1) and `small_ans` gets calculated and that stack memory gets deleted, and this keep going on untill it comes to main, and from main the value is printed.
 
+## Imp Link:
+https://dynalist.io/d/LoGwqWPmqCT3IoPxJqV2SlZp
