@@ -62,5 +62,36 @@ int main() {
 #endif
 
     fastio();
+    int num;
+    cin>>num;
+    vector<pair<string,int>> v;
+    vector<int> count(num+1,0);
+
+    string name;
+    int rank;
+    for(int i=0;i<num;i++){
+        cin>>name;
+        cin>>rank;
+        v.push_back(make_pair(name,rank));
+    }
+    for(int i=0;i<num;i++){
+        count[v[i].second]++;
+    }
+
+    int k=1;
+    int h=1;
+    int res = 0;
+    for(int i=0;i<=num;i++){
+        while(count[i]){
+            res +=abs(k-i);
+            count[i]--;
+            k++;
+        }
+    }
+    cout<<res;
+
+
+
 
 }
+

@@ -55,12 +55,23 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
-
+bool linear_search(vector<int> v, int i, int k) {
+    if (i == v.size()) {
+        return -1;
+    }
+    if (v[i] == k) {
+        return i;
+    }
+    return linear_search(v, i + 1, k);
+}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
-
     fastio();
+    vector<int> v{ 1, 2, 3, 4};
+    cout << linear_search(v, 0, 4);
+
+
 
 }

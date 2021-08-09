@@ -71,9 +71,6 @@ int main() {
     for(auto s : arr){
         cout <<s;
     }
-
-
-
     return 0;
 }
 

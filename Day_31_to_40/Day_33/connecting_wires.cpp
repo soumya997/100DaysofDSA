@@ -19,10 +19,9 @@ using namespace std;
 #define set_bits __builtin_popcountll
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-#define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
+# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #define print_vec(x) for(auto i:x) cout<<i<<" "; // prints elements of an int vector
-#define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==0; })
-#define str_to_int(x) stoi(x) // converts a string to an int
+
 
 typedef long long ll;
 typedef long long int lli;
@@ -62,5 +61,17 @@ int main() {
 #endif
 
     fastio();
+    vector<int> w{1,3,4};
+    vector<int> b{2,5,6};
+    sort(w.begin(),w.end());
+    sort(b.begin(),b.end());
+    int res=0;
+    for(int i=0;i<w.size();i++){
+        res = res + abs(w[i] - b[i]);
+    }
+
+    cout<<res;
 
 }
+
+

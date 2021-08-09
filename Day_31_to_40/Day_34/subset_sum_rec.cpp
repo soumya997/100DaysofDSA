@@ -23,6 +23,10 @@ using namespace std;
 #define print_vec(x) for(auto i:x) cout<<i<<" "; // prints elements of an int vector
 #define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==0; })
 #define str_to_int(x) stoi(x) // converts a string to an int
+#define fr(x,y) for(int i=x;i<y;i++)
+#define vi vector<int>
+
+
 
 typedef long long ll;
 typedef long long int lli;
@@ -56,11 +60,37 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
+bool check(vector<int> arr,int k,int n,int j,unordered_map<int,int> m){
+    if(n<=1){
+        return false;
+    }
+    int ans = k -  arr[j];
+    if(m.count(ans)){
+        return true;
+    }
+    return check(arr,k,n,j+1,m);
+}
+
+
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
+    // int n;
+    // cin>>n;
+    vi v{3, 34, 4, 12, 5, 2};
+
+
+    unordered_map<int,int> mp;
+    int n = v.size();
+    fr(0,n){
+        mp[v[i]] = i;
+    }
+    cout<<check(v,30,n,0,mp);
+
+
 
 }

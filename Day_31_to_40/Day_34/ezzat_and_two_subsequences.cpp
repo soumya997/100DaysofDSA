@@ -62,5 +62,21 @@ int main() {
 #endif
 
     fastio();
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<lld> v(n);
+        for (int i = 0; i < n; i++) {
+            cin >> v[i];
+        }
+        sort(all(v));
+        lld sum = 0;
+        for (int i = 0; i < n - 1; i++) {
+            sum = sum + v[i];
+        }
 
+        cout<<fixed<<setprecision(10) << (v[n - 1] + (sum /(n - 1ll))) << nline;
+    }
 }

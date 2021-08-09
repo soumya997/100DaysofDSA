@@ -19,10 +19,9 @@ using namespace std;
 #define set_bits __builtin_popcountll
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-#define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
+# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #define print_vec(x) for(auto i:x) cout<<i<<" "; // prints elements of an int vector
-#define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==0; })
-#define str_to_int(x) stoi(x) // converts a string to an int
+
 
 typedef long long ll;
 typedef long long int lli;
@@ -55,12 +54,36 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+// Space Reduction method //
+/*===============================================================================================================================*/
 
+pair<int,int> search(vector<vector<int>> v, int k){
+    //write your code here.
+    int r = 0;
+    int c = v[0].size()-1;
+
+    while(r<v.size() and c>=0){
+        if(v[r][c] == k){
+            return make_pair(r,c);
+        }
+        else if(v[r][c] < k){
+            r++;
+        }
+        else{
+            c--;
+        }
+    }
+
+}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-
+    vector<vector<int>> v{{1,3,5,7},{10,11,16,20},{23,30,34,60}};
+    int target = 3;
+    pair<int, int> ans = search(v,target);
+    cout<<ans.first<<" "<<ans.second;
+    
 }

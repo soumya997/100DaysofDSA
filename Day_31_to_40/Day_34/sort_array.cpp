@@ -55,12 +55,47 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+void bubble_sort(int arr[], int n) {
+    if (n == 1) {
+        return;
+    }
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > arr[i + 1]) {
+            // swap(arr[i], arr[i + 1]);
+            int temp = arr[i];
+            arr[i] = arr[i+1];
+            arr[i+1] = temp;
+        }
+    }
 
+    bubble_sort(arr, n - 1);
+}
+
+void bubble_sort_rec(vector<int> arr, int n, int j) {
+    if (n == 1) {
+        return;
+    }
+    if (j == n - 1) {
+        return bubble_sort_rec(arr, 0, n - 1);
+    }
+    if (arr[j] > arr[j + 1]) {
+        swap(arr[j], arr[j + 1]);
+    }
+    bubble_sort_rec(arr, j + 1, n);
+    return;
+}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
+    int arr[] = {1, 2, 3, 41, 1, 4, 3};
+    // int n = v.size();
+    bubble_sort(arr, 7);
+    for (auto i : arr) {
+        cout << i << " ";
+    }
+
 
 }

@@ -19,10 +19,9 @@ using namespace std;
 #define set_bits __builtin_popcountll
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-#define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
+# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #define print_vec(x) for(auto i:x) cout<<i<<" "; // prints elements of an int vector
-#define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==0; })
-#define str_to_int(x) stoi(x) // converts a string to an int
+
 
 typedef long long ll;
 typedef long long int lli;
@@ -56,11 +55,44 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
+bool sortbysec(pair<int,int> &a,pair<int,int>&b){
+    return a.second < b.second;
+}
+
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
+    int num;
+    cin>>num;
+    vector<pair<int,int>> v;
+    for(int i=0;i<num;i++){
+        int s,t;
+        cin>>s;
+        cin>>t;
+        v.push_back(make_pair(s,t));
+    }
+    // for(auto i:v){
+    //     cout<<i.first<<","<<i.second<<nline;
+    // }
+
+    sort(v.begin(),v.end(),sortbysec);
+    for(auto i:v){
+        cout<<i.first<<","<<i.second<<nline;
+    }
+    int j=1;
+    int cnt=1;
+    int final = v[0].second;
+    while(j<num){
+        if(v[j].first>=final){
+            cnt++;
+            final = v[j].second;
+        }
+        j++;
+    }
+    cout<<"count"<<cnt;
 
 }
