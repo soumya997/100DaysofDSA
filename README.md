@@ -1,16 +1,16 @@
 <p align="center">
-    <a href="https://twitter.com/Soumya997Sarkar/status/1394370312486068225?s=20">
+    <a href="https://twitter.com/somuSa_/status/1394370312486068225?s=20">
         <img src="imgs/dsa.png" height="100">
     </a>
 </p>
 
 <p align="center">
-    <a href="https://twitter.com/Soumya997Sarkar/status/1394370312486068225?s=20">
+    <a href="https://twitter.com/somuSa_/status/1394370312486068225?s=20">
         <img src="imgs/twitter.png" width="500">
     </a>
 </p>
 <p align="center">
-    <a href="https://twitter.com/Soumya997Sarkar"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/Soumya997Sarkar?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@Soumya997Sarkar"></a>
+    <a href="https://twitter.com/somuSa_"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/somuSa_?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@somuSa_"></a>
 </p>
 
 <!-- I have scheduled a timeline for doing the base work for DSA/CP,[here]( https://www.notion.so/soumya997/DSA-Targets-2-week-plan-689460d1ba3848b19c000f41d9c29617)
