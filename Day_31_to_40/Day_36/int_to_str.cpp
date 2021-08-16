@@ -72,11 +72,23 @@ typedef pair< int, pii> ipii;
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+void strInt(string s, int n) {
+    if (n == 0) {
+        return;
+    }
+
+    strInt(s, n - 1);
+    char c1 = s[n - 1];
+    char c2 = '0';
+    cout << c1 - c2;
+}
+
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-
+    strInt("123", 3);
 }

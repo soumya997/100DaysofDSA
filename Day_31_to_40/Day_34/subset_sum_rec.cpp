@@ -60,15 +60,17 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
-bool check(vector<int> arr,int k,int n,int j,unordered_map<int,int> m){
-    if(n<=1){
-        return false;
+void check(vector<int> arr,int k,int n,unordered_map<int,int> m,vector<int> &res){
+    // vector<int> res;
+    if(n==0){
+        return;
     }
-    int ans = k -  arr[j];
+    int ans = k -  arr[n];
     if(m.count(ans)){
-        return true;
+        res.push_back(m[ans]);
+        res.push_back(n);
     }
-    return check(arr,k,n,j+1,m);
+    check(arr,k,n-1,m,res);
 }
 
 
@@ -89,8 +91,12 @@ int main() {
     fr(0,n){
         mp[v[i]] = i;
     }
-    cout<<check(v,30,n,0,mp);
 
+    vector<int> res;
+    check(v,36,n,mp,res);
+    for(auto m:res){
+        cout<<m<<" ";
+    }
 
 
 }

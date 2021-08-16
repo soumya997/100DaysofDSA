@@ -23,13 +23,6 @@ using namespace std;
 // template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 // template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
-#ifndef ONLINE_JUDGE
-#define debug(x) cerr << #x <<" "; _print(x); cerr << endl;
-#else
-#define debug(x)
-#endif
-
-
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define MOD 1000000007
 #define MOD1 998244353
@@ -57,6 +50,7 @@ using namespace std;
 #define min3(a,b,c) min(a,min(b,c))
 
 
+
 typedef long long ll;
 typedef long long int lli;
 typedef unsigned long long ull;
@@ -70,7 +64,24 @@ typedef pair<double, double> pdd;
 typedef pair<int, double> pid;
 typedef pair< int, pii> ipii;
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
+
+#ifndef ONLINE_JUDGE
+#define debug(x) cerr << #x <<" "; _print(x); cerr << endl;
+#else
+#define debug(x)
+#endif
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+// vector<string> words = ["zero","one","two","three","four","five","six","seven","eight","nine"];
+void print_spelling(int n) {
+    if (n == 0) {
+        return;
+    }
+
+    print_spelling(n / 10);
+    cout << words[n % 10];
+}
+
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -78,5 +89,7 @@ int main() {
 #endif
 
     fastio();
+    print_spelling(2048);
+    // cout<<"hi";
 
 }

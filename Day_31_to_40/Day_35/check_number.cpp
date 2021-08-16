@@ -56,24 +56,57 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
-bool check_sort(vector<int> v,int i){
-    if(i==v.size()-1){
-        return true;
+int check(vector<int> num,int k,int n){
+    if(n==0){
+        return -1;
     }
-    if(v[i]>v[i+1]){
-        return false;
+    if(num[n]==k){
+        return n;
     }
-    return check_sort(v,i+1);
+
+    return check(num,k,n-1);
 }
 
-bool check_sorted(vector<int> v,int n){
-    if(n==0 or n==1){
+int first_check(vector<int> num,int k,int n,int j){
+    if(j==n-1){
+        return -1;
+    }
+    if(num[j]==k){
+        return j;
+    }
+
+    return first_check(num,k,n,j+1);
+}
+
+void all_check(vector<int> num,int k,int n,int j){
+    if(j==n){
+        return;
+    }
+    if(num[j]==k){
+        cout<<j<<" ";
+    }
+    all_check(num,k,n,j+1);
+}
+
+void all_check_arr(int num[],int k,int n,int j){
+    if(j==n){
+        return;
+    }
+    if(num[j]==k){
+        cout<<j<<" ";
+    }
+    all_check_arr(num,k,n,j+1);
+}
+
+
+bool check_arr(int nums[],int k,int n){
+    if(n==0){
+        return false;
+    }
+    if(nums[0]==k){
         return true;
     }
-    if(v[0]<v[1] and check_sorted(v+1,n-1)){
-        return true;
-    }
-    return false;
+    return check_arr(nums+1,k,n-1);
 }
 
 
@@ -83,6 +116,12 @@ int main() {
 #endif
 
     fastio();
-    vector<int> v{ 1, 2,3,4};
-    cout<<check_sorted(v,4);
+    vector<int> v{23,1,141,5,15,12,5};
+    int k=5;
+    int arr[7] = {23,1,141,5,15,12,5};
+
+    // cout<<check_arr(arr,k,6);
+    // all_check_arr(arr,k,7,0);
+    all_check(v,k,7,0);
+
 }

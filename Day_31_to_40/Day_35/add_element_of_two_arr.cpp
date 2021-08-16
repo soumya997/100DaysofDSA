@@ -22,7 +22,7 @@ using namespace std;
 #define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #define print_vec(x) for(auto i:x) cout<<i<<" "; // prints elements of an int vector
 #define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==0; })
-#define str_to_int(x) stoi(x) // converts a string to an int
+// #define str_to_int(x) stoi(x) // converts a string to an int
 
 typedef long long ll;
 typedef long long int lli;
@@ -55,27 +55,81 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
+// void add_element(vector<int> a,vector<int> b,vector<int> &ans,int n,int m,int j,int i){
+//     if(j==n or i==m){
+//         return;
+//     }
 
-bool check_sort(vector<int> v,int i){
-    if(i==v.size()-1){
-        return true;
+//     // while(j<a.size() and i<b.size()){
+//     if(j<a.size() and i<b.size()){
+//         int sum = a[j] + b[i];
+//         string st = to_string(sum);
+//         for(int i=0;i<st.length();i++){
+//             char stin = st[i];
+//             ans.pb(stin - '0');
+//         }
+//         add_element(a,b,ans,n,m,j+1,i+1);
+//     }
+
+//     // j++;
+//     // i++;
+//     // }
+
+//     if(j<a.size()){
+//         int sum = a[j];
+//         string st = to_string(sum);
+//         for(int i=0;i<st.length();i++){
+//             char stin = st[i];
+//             ans.pb(stin - '0');
+//         }
+//         // j++;
+//         add_element(a,b,ans,n,m,j+1,i);
+//     }
+
+//     if(i<b.size()){
+//         int sum = b[i];
+//         string st = to_string(sum);
+//         for(int i=0;i<st.length();i++){
+//             char stin = st[i];
+//             ans.pb(stin - '0');
+//         }
+//         // i++;
+//         add_element(a,b,ans,n,m,j,i+1);
+//     }
+
+// }
+
+void split_number(int num, vector<int> &result)
+{
+    if (num > 0)
+    {
+        split_number(num/10, result);
+        result.push_back(num % 10);
     }
-    if(v[i]>v[i+1]){
-        return false;
-    }
-    return check_sort(v,i+1);
 }
 
-bool check_sorted(vector<int> v,int n){
-    if(n==0 or n==1){
-        return true;
-    }
-    if(v[0]<v[1] and check_sorted(v+1,n-1)){
-        return true;
-    }
-    return false;
-}
+void add(vector<int> const &a, vector<int> const &b, vector<int> &result)
+{
+    int m = a.size(), n = b.size();
 
+    int i = 0;
+    while (i < m && i < n)
+    {
+        int sum = a[i] + b[i];
+
+        split_number(sum, result);
+
+        i++;
+    }
+
+    while (i < m) {
+        split_number(a[i++], result);
+    }
+
+    while (i < n) {
+        split_number(b[i++], result);
+    }
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -83,6 +137,22 @@ int main() {
 #endif
 
     fastio();
-    vector<int> v{ 1, 2,3,4};
-    cout<<check_sorted(v,4);
+    vector<int> a{ 23, 5, 2, 7, 87 };
+    vector<int> b{ 4, 67, 2, 8 };
+    vector<int> ans;
+    // print_vec(ans);
+
+    // code for char to int
+
+    // string s = "4343";
+    // char s1 = s[2];
+    // int num = stoi(s1);
+    // int n;
+    // stringstream ( s1 ) >> n;
+    // cout<<s1 - '0';
+
+    add(a,b,ans);
+
+    print_vec(ans);
+    cout<<nline<<ans.size();
 }

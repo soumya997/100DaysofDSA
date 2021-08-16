@@ -72,11 +72,53 @@ typedef pair< int, pii> ipii;
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+long long nCr(int n, int r) {
+    ll p = 1;
+    ll k = 1;
+
+    if (n - r > r) {
+        r = n - r;
+    }
+    if (r != 0) {
+        while (r) {
+            p *= n;
+            k *= r;
+
+            long long j = gcd(p, k);
+
+            p /= j;
+            k /= j;
+
+            n--;
+            r--;
+        }
+    }
+
+    else {
+        p = 1;
+    }
+    return p;
+}
+
+
+int friends(int n) {
+    if (n < 1) {
+        return 1;
+    }
+    else if (n == 2) {
+        return 2;
+    }
+
+    int ans1 = friends(n - 1);
+    int ans2 =  nCr(n - 1, 1) * friends(n - 2);
+    return ans1 + ans2;
+}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-
+    cout << friends(3);
 }

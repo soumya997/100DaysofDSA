@@ -56,26 +56,14 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 /*===============================================================================================================================*/
 
-bool check_sort(vector<int> v,int i){
-    if(i==v.size()-1){
-        return true;
+int count(int number){
+    // int cnt = 0;
+    if(number/10==0){
+        return 1;
     }
-    if(v[i]>v[i+1]){
-        return false;
-    }
-    return check_sort(v,i+1);
-}
 
-bool check_sorted(vector<int> v,int n){
-    if(n==0 or n==1){
-        return true;
-    }
-    if(v[0]<v[1] and check_sorted(v+1,n-1)){
-        return true;
-    }
-    return false;
+    return count(number/10)+1;
 }
-
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -83,6 +71,9 @@ int main() {
 #endif
 
     fastio();
-    vector<int> v{ 1, 2,3,4};
-    cout<<check_sorted(v,4);
+    // cout<<51%10;
+    int num = 1234143423;
+    cout<<count(num);
+
+
 }

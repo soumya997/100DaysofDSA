@@ -29,7 +29,6 @@ using namespace std;
 #define debug(x)
 #endif
 
-
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define MOD 1000000007
 #define MOD1 998244353
@@ -72,11 +71,42 @@ typedef pair< int, pii> ipii;
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+void replace_pi(string a, int i) {
+    if (a[i] == '\0' or a[i+1]=='\0') {
+        return;
+    }
+
+    if(a[i]=='p' and a[i+1] == 'i'){
+        int j=i+2;
+        while(a[j]!='\0'){
+            j++;
+        }
+        while(j>=i+2){
+            a[j+2] = a[j];
+            j--;
+        }
+
+        a[i] = '3';
+        a[i+1] = '.';
+        a[i+2] = '1';
+        a[i+3] = '4';
+
+        replace_pi(a,i+4);
+    }
+    else{
+        replace_pi(a,i+1);
+    }
+    return;
+}
+
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
+    string s = "apibpicpidpi";
+
 
 }

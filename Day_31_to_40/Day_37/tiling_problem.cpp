@@ -72,11 +72,23 @@ typedef pair< int, pii> ipii;
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+int tiling(int n){
+    if(n<=3){
+        return 1;
+    }
+
+    int ans1 = tiling(n-1);
+    int ans2 = tiling(n-4);
+
+    return ans1 + ans2;
+}
+
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
-
+    cout<<tiling(10);
 }
