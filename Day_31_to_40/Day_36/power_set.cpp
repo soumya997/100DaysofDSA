@@ -88,8 +88,8 @@ void power_set(vi nums,int i,vi ans){
 
     // first dont take the ith element in the subset
     power_set(nums,i+1,ans);
-    ans.pb(nums[i]);
     // now taking the ith element
+    ans.pb(nums[i]);
     power_set(nums,i+1,ans);
     ans.ppb();
 }
