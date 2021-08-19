@@ -215,7 +215,7 @@ bool detect_cycle(node* head){
     node* slow = head;
     node* fast = head;
 
-    while(fast!=NULL && fast->next !=NULL){
+    while(fast!=NULL && fast->next !=NULL){         // we keep the loop on untill then fast is not equal to NULL and fast-> != NULL(this is because we are doing fast->next->next in the next line)
         fast = fast->next->next;
         slow = slow->next;
         if(fast==slow){
@@ -225,10 +225,16 @@ bool detect_cycle(node* head){
     return false;
 }
 ```
+### Create Circular LinkedList:
+
+<p align="center">
+    <img src="../../imgs/create_cycle.png", width="400">
+</p>
+
 
 ### cycle removal or break cycle:
 - for break the cycle you need to make the node with 7 point to NULL. you have to do `p->next = NULL`.
-- when slow and fast meets at that time put the slow and the fast pointer at the head of ll and make slow and fast take only one step at a time.
+- when slow and fast meets(here its 6 where slow and fast meet with each other) at that time put the slow at the head of ll and make slow and fast both take only one step at a time.When they again meet with each other, that would be the start of the cycle.
 - floyed proved that x and z is equal.
 - **Proof**,
     + distance traveled by slow is D_slow = x + y and distance traveled by fase D_fast = x+2y+z, and we also know that distance traveled by y is twice as much as distance traveled by x means (D_fast = 2 * D_slow).
@@ -241,6 +247,14 @@ bool detect_cycle(node* head){
 
 <p align="center">
     <img src="../../imgs/ll5.png">
+</p>
+<br>
+<p align="center">
+    <img src="../../imgs/Inkedcll_LI.jpg">
+</p>
+<br>
+<p align="center">
+    <img src="../../imgs/Inkedll_LI.jpg">
 </p>
 
 ```cpp
@@ -266,13 +280,13 @@ bool floydCycleRemoval(node *head)
                 slow = slow->next;
                 fast = fast->next;
             }
-            slow->next=NULL;
+            slow->next=NULL;    // here we do the 1st step(p->next = NULL) and at this position slow and fast at the same position, making changes in fast or slow will result the same.
 
-            return 1;
+            return 1;       // if it returns 1, it means its a circular linkedlist
         }
     }
 
-    return 0;
+    return 0;              // if it returns 0, it means its a circular linkedlist
 }
 ```
 ## Doubly LinkedList:
