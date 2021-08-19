@@ -134,9 +134,14 @@ void print_ll(node* head){
 }
 
 void delete_head(node* head){
-    node* temp = head->next;
-    delete head;
-    head = temp;
+    if(head == NULL){
+        return;
+    }
+    node* temp = head->next;          // LinkedList:  1->2->3, head-> next = address of 2, and we are assigning it to a temporary variable temp 
+    
+    delete head;                      // delete head: deletes the variable of whose address is stored in head, and here head stores the address of 1. The actual head variable                                           // doesn't get deleted.
+    
+    head = temp;                      // now we assign the address stored in temp to head, and temp gets removed from the function call as it was a static allocation.
 }
 
 node* search_recursion(node*head,int key){
