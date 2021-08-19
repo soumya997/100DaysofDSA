@@ -137,11 +137,11 @@ void delete_head(node* head){
     if(head == NULL){
         return;
     }
-    node* temp = head->next;          // LinkedList:  1->2->3, head-> next = address of 2, and we are assigning it to a temporary variable temp 
+    node* temp = head->next;   // LinkedList:  1->2->3, head-> next = address of 2, and we are assigning it to a temporary variable temp 
     
-    delete head;                      // delete head: deletes the variable of whose address is stored in head, and here head stores the address of 1. The actual head variable                                           // doesn't get deleted.
+    delete head;              // delete head: deletes the variable of whose address is stored in head, and here head stores the address of 1. The actual head variable doesn't get deleted.
     
-    head = temp;                      // now we assign the address stored in temp to head, and temp gets removed from the function call as it was a static allocation.
+    head = temp;              // now we assign the address stored in temp to head, and temp gets removed from the function call as it was a static allocation.
 }
 
 node* search_recursion(node*head,int key){
@@ -252,6 +252,6 @@ int main(){
 
 
 
-# terms to remember:
+# randoom terms to remember:
 1. dereference, we use it in pointer to get the value
 2. when we pass by a variable reference using `&` in the function(e.g-> fun(int& age)), then it updates the value for the main function if any operation happens with the variable.  
