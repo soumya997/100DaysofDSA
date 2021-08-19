@@ -89,7 +89,18 @@ void insert_middle(node*&head,int data,int p){
 ```
 ### searching:
 ```cpp
+// search using iterative approach
+bool search(node* head,int key){
+    node* temp = head;
+    while(temp->next==NULL){
+        if(head->data == key){
+            return true;
+        }
+    }
+    return false;
+} 
 
+// search: search using recursion where we return the address of the desired key
 node* search_recursion(node*head,int key){
     if(head==NULL){
         return NULL;
@@ -102,6 +113,7 @@ node* search_recursion(node*head,int key){
     }
 }
 
+// search: search using recursion, returns the presence of the key using bool 
 bool search_recursion_bool(node*head,int key){
     if(head==NULL){
         return false;
@@ -113,16 +125,6 @@ bool search_recursion_bool(node*head,int key){
         return search(head->next,key);
     }
 }
-
-bool search(node* head,int key){
-    node* temp = head;
-    while(temp->next==NULL){
-        if(head->data == key){
-            return true;
-        }
-    }
-    return false;
-} 
 ```
 ### insert_tail:
 ```cpp
@@ -172,17 +174,26 @@ int length(node *head){
 ```
 ### take input from user:
 ```cpp
+// 
+
 node* take_input(){
     int d;
-    cin>>d;
-    node* head = NULL;
+    cin>>d;                     // taking the data
+    node* head = NULL;          // creating the head pointer
 
-    while(d!=-1){
-        insert_head(head,d);
-        cin>>d;
-    }
-    return head;
+    while(d!=-1){              // - + untill user provides -1 as the input we ill keep taking input from user 
+        insert_head(head,d);   //   | and insert in the head(we can use other insert operations too)
+        cin>>d;                //   | and take input from the user, which will eventually update d.
+    }                          // - +
+    return head;               // we return head as we are not taking head in the function input.
 }
+
+// driver function
+int main(){
+    node* head = take_input();
+    print_ll(head);
+}
+
 // take input from input.txt
 node* take_input_txt(){
     int d;
