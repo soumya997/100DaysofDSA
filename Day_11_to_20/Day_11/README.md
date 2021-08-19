@@ -257,6 +257,8 @@ bool detect_cycle(node* head){
     <img src="../../imgs/Inkedll_LI.jpg">
 </p>
 
+**Code explanation:** https://youtu.be/Fj1ywT9ETQk
+
 ```cpp
 // head - Head pointer of the Linked List
 // Return a boolean value indicating the presence of cycle
