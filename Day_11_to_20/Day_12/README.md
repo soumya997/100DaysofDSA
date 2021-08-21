@@ -89,6 +89,24 @@ int main() {
 ```
 
 ## Stack STL:
+
+- mystack1.swap(mystack2): 
+    swaps two stacks.
+    ```
+    before swaping:
+    mystack1 = 4 3 2 1 
+    mystack2 = 9 7 5 3 
+    After swaping:
+    mystack1 = 9 7 5 3 
+    mystack2 = 4 3 2 1 
+    ```
+- mystack.size(): gives size of the stack.
+- mystack.pop()
+- mystack.push()
+- mystack.top()
+- mystack.empty()
+
+
 ```cpp
 #include <iostream>
 #include<stack>
