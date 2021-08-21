@@ -2,7 +2,7 @@
 **Note:** use the github provided TOC for navigaing.
 
 # Stack Data structure:
-It follows LIFO order, which means Last in first out. Whcih means that the element that had been inserted last will come out first. Here we add element from the top and remove element from the top(see the img below).
+It follows LIFO order, which means Last in first out. Whcih means that the element that had been inserted last will come out first. Here we add element from the top and remove element from the top.
 
 ```cpp
 class Stack{
