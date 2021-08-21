@@ -9,17 +9,21 @@ class Stack{
 private:
     vector<int> v;    
 public:
-    void push(int data){
+    // pushes elements at the back of the vector
+    void push(int data){            
         v.push_back(data);
     }
+    // check if the stack is empty or not
     bool empty(){
-        return v.size()==0;
+        return v.size()==0;     // if the size of the stack(here its the vector) is zero then the stack is empty
     }
+    // insert element at the back
     void pop(){
         if(!empty()){
              v.pop_back();
         }
     }
+    // access element from the back, for the stack it the top most element
     int top(){
         return v[v.size()-1];
     }
