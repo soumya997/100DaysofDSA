@@ -49,11 +49,12 @@ return 0;
 ## Using template for creating the class:
 - it is a stack of multiple data type, means if you do `Stack<int,char> S` this means we have a stack that can hold integer type as well as charecter type data.
 ```cpp
-template<typename T,typename U>
+// template<typename T,typename U>
+template<typename T>
 class Stack{
 private:
     vector<T> v; 
-    vector<U> v2;   
+    //vector<U> v2;   
 public:
     void push(T data){
         v.push_back(data);
@@ -72,8 +73,9 @@ public:
 };
 
 int main() {
-    Stack<char,int> s;
-
+    // Stack<char,int> s;
+    Stack<int> s;
+    
     for(int i=65;i<=70;i++){
         s.push(i);
     }
