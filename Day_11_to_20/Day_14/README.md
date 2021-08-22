@@ -9,7 +9,7 @@ example of the problem that heap solves, 10k students appeared for a coding cont
 - in array you need to do linear search for max element,then you can pop/get, that why it is a O(N) complexity. In case of sorrted array at the time of inserting element you need to compare that element with the other elements and perform shift operation accordingly that insertion in sorted array is O(N). Incase of BST you need to travel up to a sertain position to insert or pop or get. But heap does that in O(logN) for insertion and pop and O(1) for get. 
 
 ## What is heap:
-1. it is a binary.
+1. it is a binary tree.
 2. It should be a complete binary tree(CBT).(n.b: if all level of the tree are complet;y filled except last level, but filling should be left to right order.)
 3. Heap order property, maxheap and min heap.Heap order property for max/min says, every parent node in the heap will have high/low value than its children.
 
