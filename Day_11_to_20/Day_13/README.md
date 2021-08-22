@@ -10,6 +10,11 @@
     <img src="../../imgs/queue1.png" width="500">
 </p>
 
+<br>
+
+<p align="center">
+    <img src="../../imgs/queue2.png" width="500">
+</p>
 
 ```cpp
 #include <iostream>
@@ -82,9 +87,7 @@ int main(){
 ## queue implelntation using Linkedlist;
 - If we use linkedlist for creating the queue then its not possible that a queue will be full.
 
-<p align="center">
-    <img src="../../imgs/queue2.png" width="500">
-</p>
+
 
 ```cpp
 #include<list>      // doubly Linkedlist
