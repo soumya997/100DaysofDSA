@@ -169,6 +169,23 @@ e.g: file structure in a computer.
 </p>
 
 ### Build tree:
+#### Binary tree class:
+
+```cpp
+class Node{
+
+public:
+	int data;
+	Node * left;
+	Node * right;
+
+	Node(int d){
+		data = d;
+		left = right = NULL;
+	}
+};
+```
+
 top down approach, algorithm is like,
 1. build the root
 2. recursively build left and right sub tree 
