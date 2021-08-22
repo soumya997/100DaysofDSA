@@ -91,10 +91,10 @@ Table to see the twitter posts regarding `100DaysOfDSA` challenge. **I will try 
 ```python
 1. do most of the problems from fraz sheet []
 2. complete DSA and OOPs  []
-    ✅ cover stack                <--+
-    [] cover heap                    |  Due date -> 21/08/21    
-    [] cover BT and BST              | 
-    [] Cover hash table           <--+
+    ✔  cover stack                <--+
+    [] cover heap                     |  Due date -> 21/08/21    
+    [] cover BT and BST               | 
+    [] Cover hash table            <--+
     [] cover oops
     [] sorting
     [] binary search problems
