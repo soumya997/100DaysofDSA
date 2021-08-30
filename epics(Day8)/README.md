@@ -237,3 +237,5 @@ I needed to change the color of the comments in my color scheme, I'm using cobul
     ]
 }
 ```
+
+## writing functions is calle procedural programming and wrting classes called object oriented programming.
