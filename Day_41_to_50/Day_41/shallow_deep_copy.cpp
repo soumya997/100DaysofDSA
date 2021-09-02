@@ -4,28 +4,13 @@
 
 using namespace std;
 
-
-typedef long long ll;
-typedef long long int lli;
-typedef unsigned long long ull;
-typedef long double lld;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef pair<int, int> pii;
-typedef pair<ll, ll> pll;
-typedef pair<ll, bool> pib;
-typedef pair<double, double> pdd;
-typedef pair<int, double> pid;
-typedef pair< int, pii> ipii;
-
-
-void _print(ll t) {cerr << t;}
-void _print(int t) {cerr << t;}
-void _print(string t) {cerr << t;}
-void _print(char t) {cerr << t;}
-void _print(lld t) {cerr << t;}
-void _print(double t) {cerr << t;}
-void _print(ull t) {cerr << t;}
+// void _print(ll t) {cerr << t;}
+// void _print(int t) {cerr << t;}
+// void _print(string t) {cerr << t;}
+// void _print(char t) {cerr << t;}
+// void _print(lld t) {cerr << t;}
+// void _print(double t) {cerr << t;}
+// void _print(ull t) {cerr << t;}
 
 // template <class T, class V> void _print(pair <T, V> p);
 // template <class T> void _print(vector <T> v);
@@ -59,7 +44,6 @@ void _print(ull t) {cerr << t;}
 #define set_bits __builtin_popcountll
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-#define fo(i,n) for(int i=0;i<n;i++) // for loop
 #define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #define print_vec(x) for(auto i:x) cout<<i<<" "; // prints elements of an int vector
 #define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==0; })
@@ -71,16 +55,80 @@ void _print(ull t) {cerr << t;}
 #define minall(v) *min_element(all(v))
 #define max3(a,b,c) max(a,max(b,c))
 #define min3(a,b,c) min(a,min(b,c))
+
+
+typedef long long ll;
+typedef long long int lli;
+typedef unsigned long long ull;
+typedef long double lld;
+typedef vector<int> vi;
+typedef vector<ll> vll;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef pair<ll, bool> pib;
+typedef pair<double, double> pdd;
+typedef pair<int, double> pid;
+typedef pair< int, pii> ipii;
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 
+class Student{
+
+public:
+    int num;
+    string name;
+    // char subject[100];
+    char *subject;
+
+    Student(){
+        subject = NULL;
+    }
+    // this is a paramiterized constructors
+    Student(int n,string s,char *sub){
+        num = n;
+        name = s;
+        subject = new char[strlen(sub)+1];
+        strcpy(subject,sub);
+    }
+    // Copy constructor
+    // Student(Student &x){
+    //     cout<<"inside copy cons";
+    //     num = x.num;
+    //     name = x.name;
+
+    // }
+    // shallow copy
+    // Student
+
+
+    void print(){
+        cout<<"num: "<<num<<endl;
+        cout<<"name: "<<name<<endl;
+        cout<<"subject: "<<subject;
+    }
+    // UNIQUE1: declear the function here 1st
+    void get_name();
+};
+
+
+// UNIQUE1: define a class method outside of that class
+void Student::get_name(){
+    cout<<"Name "<<Student::name;
+}
+
 
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("errorf.in", "w", stderr);
-#endif
+    Student s1(21,"Rahul","maths");
+    // s1.num = 21;
+    // s1.name = "rahul";
+    Student s2(s1);
 
-    fastio();
+    // s2.name = "Raj";
+    // s1.print();
+    // s2.get_name();
 
+    s1.print();
+    cout<<endl;
+    s2.print();
 }

@@ -5,6 +5,7 @@
 using namespace std;
 
 
+
 typedef long long ll;
 typedef long long int lli;
 typedef unsigned long long ull;
@@ -17,6 +18,7 @@ typedef pair<ll, bool> pib;
 typedef pair<double, double> pdd;
 typedef pair<int, double> pid;
 typedef pair< int, pii> ipii;
+
 
 
 void _print(ll t) {cerr << t;}
@@ -59,7 +61,6 @@ void _print(ull t) {cerr << t;}
 #define set_bits __builtin_popcountll
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-#define fo(i,n) for(int i=0;i<n;i++) // for loop
 #define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #define print_vec(x) for(auto i:x) cout<<i<<" "; // prints elements of an int vector
 #define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==0; })
@@ -71,8 +72,11 @@ void _print(ull t) {cerr << t;}
 #define minall(v) *min_element(all(v))
 #define max3(a,b,c) max(a,max(b,c))
 #define min3(a,b,c) min(a,min(b,c))
+
+
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
 
 
 
@@ -82,5 +86,32 @@ int main() {
 #endif
 
     fastio();
+    int n;
+    cin >> n;
+    // vector<int> v(3);
+    int sum1 = 0;
+    int sum2 = 0;
+    int sum3 = 0;
+    int a,b,c;
 
+    for (int i = 0; i < n; i++) {
+        // for (int j = 0; j < 3; j++) {
+        //     cin >> v[j];
+        // }
+        cin>>a>>b>>c;
+
+        sum1 = sum1 + a;
+        sum2 = sum2 + b;
+        sum3 = sum3 + c;
+
+    }
+
+    // cout<<(sum1 + sum2 + sum3)<<endl;
+    if (sum1 ==0 and sum2 == 0 and sum3 == 0) {
+        cout << "YES"<<endl;
+    }
+    else {
+        cout << "NO"<<endl;
+    }
+    // print_vec(v);
 }

@@ -76,11 +76,43 @@ void _print(ull t) {cerr << t;}
 
 
 
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("errorf.in", "w", stderr);
 #endif
 
     fastio();
+    int x=0;
+    int y=0;
+    vector<vector<int>> d(0);
+    int temp;
+    for(int i=0;i<5;i++){
+        vi vec;
+        for(int j=0;j<5;j++){
+            cin>>temp;
+            vec.push_back(temp);
+            if(vec[j]==1){
+                y =j;
+                x =i;
+            }
+        }
+        d.push_back(vec);
+    }
+
+
+    // cout<<abs(x-2)<<nline;
+    // cout<<abs(y-2);
+
+    cout<<(abs(x-2)+abs(y-2));
+
+
+
+    // for(int i=0;i<5;i++){
+    //     for(int j=0;j<5;j++){
+    //         cout<<d[i][j];
+    //     }
+    //     cout<<nline;
+    // }
 
 }

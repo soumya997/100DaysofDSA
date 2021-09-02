@@ -73,8 +73,90 @@ void _print(ull t) {cerr << t;}
 #define min3(a,b,c) min(a,min(b,c))
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+class node{
+public:
+    int data;
+    node* next;
+    node(int d){
+        data = d;
+        next = NULL;
+    }
+};
+
+void insert_head(node* &head,int d){
+    if(head==NULL){
+        head = new node(d);
+        return;
+    }
+    node* n = new node(d);
+    n->next = head;
+    head = n;
+}
+
+void print_ll(node* head){
+    while(head !=NULL){
+        cout<<head->data<<",";
+        head = head->next;
+    }
+}
+// bool palindrom(node* head){
+    // bool flag = false;
+    // node* temp = head;
+    // while(temp->next != NULL){
+    //     temp = temp->next;
+    // }
+    // node* temp1 = head;
+    // while(temp->next != temp1->next){
+    //     if(temp->data == temp1->data){
+    //         flag = true;
+    //         temp = temp->next;
+    //         temp1 = temp1->next;
+    //     }
+    //     else{
+    //         flag = false;
+    //     }
+    // }
+
+    // return flag;
+
+// }
+node* reverse(node* head){
+    // base case
+    if(head->next == NULL){
+        return head;
+    }
+
+    node* shead = reverse(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return shead;
+}
 
 
+bool palindrom(node* &head){
+    bool flag =false;
+    node* temp = head;
+    print_ll(temp);
+    cout<<nline;
+    node* n = reverse(head);
+    print_ll(n);
+    while(temp->next!= NULL and n->next !=NULL){
+        if(temp->data == n->data){
+            // cout<<temp->data;
+            debug(temp->data);
+            debug(n->data);
+            flag = true;
+            temp = temp->next;
+            n = n->next;
+        }
+        else{
+            flag = false;
+            break;
+        }
+    }
+
+    return flag;
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -82,5 +164,30 @@ int main() {
 #endif
 
     fastio();
+    node* head =NULL;
+    insert_head(head,1);
+    insert_head(head,2);
+    insert_head(head,2);
+    insert_head(head,1);
 
+    // print_ll(head);
+    // cout<<nline;
+    // rev_print_ll(head);
+    // node* n = rec_rev(head);
+    // // Reverse(head);
+    // cout<<nline;
+    // print_ll(n);
+    // int sum=0;
+    // rec_sum_1(head,sum);
+    // cout<<sum;
+    // bool a = palindrom(head);
+    if(palindrom(head)){
+        cout<<"hi";
+    }
+    else{
+        cout<<"no";
+    }
+
+    // node* n = reverse(head);
+    // print_ll(n);
 }

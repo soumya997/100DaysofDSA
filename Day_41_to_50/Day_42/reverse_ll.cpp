@@ -73,7 +73,95 @@ void _print(ull t) {cerr << t;}
 #define min3(a,b,c) min(a,min(b,c))
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+class node{
+public:
+    int data;
+    node* next;
+    node(int d){
+        data = d;
+        next = NULL;
+    }
+};
 
+void insert_head(node* &head,int d){
+    if(head==NULL){
+        head = new node(d);
+        return;
+    }
+    node* n = new node(d);
+    n->next = head;
+    head = n;
+}
+// 2nd best
+node* reverse_ll(node* head){
+    if(head == NULL or head->next==NULL){
+        return head;
+    }
+    node* shead = reverse_ll(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return shead;
+}
+// 2nd best
+node* rec_rev(node* head){
+    if(head->next == NULL){
+        return head;
+    }
+
+    node* shead = rec_rev(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return shead;
+}
+
+// best one
+node* reverse_rec(node* head){
+    if(head->next == NULL){
+        return head;
+    }
+    // do recurcive case
+    node* shead = reverse_rec(head->next);
+    node* temp = shead;
+    while(temp->next!=NULL){
+        temp = temp->next;
+    }
+    temp->next = head;
+    head->next = NULL;
+    return shead;
+}
+
+void print_ll(node* head){
+    while(head !=NULL){
+        cout<<head->data<<",";
+        head = head->next;
+    }
+}
+
+void rev_print_ll(node* head){
+    if(head->next == NULL){
+        cout<<head->data<<",";
+        return;
+    }
+    rev_print_ll(head->next);
+    cout<<head->data<<",";
+}
+
+// int rec_sum(node* head,int s){
+//     if(head == NULL){
+//         return 0;
+//     }
+
+//     // s += head->data;
+//     return (head->data) + rec_sum(head->next,s);
+// }
+
+void rec_sum_1(node* head,int &s){
+    if(head==NULL){
+        return;
+    }
+    s = s + (head->data);
+    rec_sum_1(head->next,s);
+}
 
 
 int main() {
@@ -82,5 +170,20 @@ int main() {
 #endif
 
     fastio();
+    node* head =NULL;
+    insert_head(head,1);
+    insert_head(head,2);
+    insert_head(head,3);
+    insert_head(head,4);
 
+    // print_ll(head);
+    // cout<<nline;
+    // rev_print_ll(head);
+    // node* n = rec_rev(head);
+    // // Reverse(head);
+    // cout<<nline;
+    // print_ll(n);
+    int sum=0;
+    rec_sum_1(head,sum);
+    cout<<sum;
 }

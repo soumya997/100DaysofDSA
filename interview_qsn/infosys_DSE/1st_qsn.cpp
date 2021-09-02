@@ -4,28 +4,13 @@
 
 using namespace std;
 
-
-typedef long long ll;
-typedef long long int lli;
-typedef unsigned long long ull;
-typedef long double lld;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef pair<int, int> pii;
-typedef pair<ll, ll> pll;
-typedef pair<ll, bool> pib;
-typedef pair<double, double> pdd;
-typedef pair<int, double> pid;
-typedef pair< int, pii> ipii;
-
-
-void _print(ll t) {cerr << t;}
-void _print(int t) {cerr << t;}
-void _print(string t) {cerr << t;}
-void _print(char t) {cerr << t;}
-void _print(lld t) {cerr << t;}
-void _print(double t) {cerr << t;}
-void _print(ull t) {cerr << t;}
+// void _print(ll t) {cerr << t;}
+// void _print(int t) {cerr << t;}
+// void _print(string t) {cerr << t;}
+// void _print(char t) {cerr << t;}
+// void _print(lld t) {cerr << t;}
+// void _print(double t) {cerr << t;}
+// void _print(ull t) {cerr << t;}
 
 // template <class T, class V> void _print(pair <T, V> p);
 // template <class T> void _print(vector <T> v);
@@ -59,7 +44,6 @@ void _print(ull t) {cerr << t;}
 #define set_bits __builtin_popcountll
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-#define fo(i,n) for(int i=0;i<n;i++) // for loop
 #define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #define print_vec(x) for(auto i:x) cout<<i<<" "; // prints elements of an int vector
 #define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==0; })
@@ -71,10 +55,50 @@ void _print(ull t) {cerr << t;}
 #define minall(v) *min_element(all(v))
 #define max3(a,b,c) max(a,max(b,c))
 #define min3(a,b,c) min(a,min(b,c))
+
+
+typedef long long ll;
+typedef long long int lli;
+typedef unsigned long long ull;
+typedef long double lld;
+typedef vector<int> vi;
+typedef vector<ll> vll;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef pair<ll, bool> pib;
+typedef pair<double, double> pdd;
+typedef pair<int, double> pid;
+typedef pair< int, pii> ipii;
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+void bubble_sort(vector<int> &v){
+    for(int i=0;i<v.size()-1;i++){
+        for(int j=0;j<(v.size()-i-1);j++){
+            if(v[j]>v[j+1]){
+                swap(v[j+1],v[j]);
+            }
+        }
+    }
+}
 
+int binary_search(vector<int> v,int key){
+    int s = 0;
+    int e = n-1;
+
+    while(s<=e){
+        int mid =(s+e)/2;
+        if(v[mid] == key){
+            return mid;
+        }
+        else if(v[mid]>key){
+            e = mid-1;
+        }
+        else{
+            s = mid+1
+        }
+    }
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -82,5 +106,7 @@ int main() {
 #endif
 
     fastio();
-
+    vector<int> v{5,3,1,4,2};
+    bubble_sort(v);
+    print_vec(v);
 }
