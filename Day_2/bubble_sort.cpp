@@ -1,6 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+    points to remember about bubble sort,
+    1. using array for doing bubble sort or any other algorithm which involves 
+       element wise swaping is better than vector, we cant use swap on vectors 
+       for element wise swaping.
+*/
+
 
 void bubble_sort(int arr[],int n){
     //take the bigger at the end
