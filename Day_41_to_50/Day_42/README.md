@@ -1,8 +1,16 @@
 # Things I learned in: Day_41_to_50/Day_42
 **Note:** use the github provided TOC for navigaing.
 
+|Function|Usage|
+|--------|-----|
+|[search_n](#search_n)|used to search whether a given element present in a given no. of times consecutively with the container elements.|
+|[search](#search)|to find a smaller vector in another larger vector, eg: { 3, 4, 5 } in {1,2,3,4,5,6}|
+| [find_if,find_if_not](#find_if-find_if_not)|searching based on condition, it returns itertor of the 1st element which satisfies the condition. eg: { 10, 25, 40, 55 }, condition odd, then it returns the iterator of 25|
+|[find_end](#find_end)|used to find the last occurrence of a sub-sequence inside a container, eg: { 1, 2, 3, 4, 5, 6, 7, 3, 4, 5 }, smaller sub-sequence {3,4} returns the iterator of last {3,4}|
+|[find](#find)|Returns an iterator to the first element in the range [first,last) that compares equal to val. If no such element is found, the function returns last. |
 
-# std::search_n:
+
+# search_n:
 
 https://www.geeksforgeeks.org/stdsearch_n-with-example-in-cpp/
 ```cpp
@@ -45,7 +53,7 @@ int main()
 */
 ```
 
-# std::search:
+# search:
 
 https://www.geeksforgeeks.org/stdsearch-in-c/
 ```cpp
@@ -87,7 +95,7 @@ int main()
 */
 ```
 
-# std::find_if , std::find_if_not:
+# find_if , find_if_not:
 
 https://www.geeksforgeeks.org/stdfind_if-stdfind_if_not-in-c/
 
@@ -231,21 +239,3 @@ Element 30 found at position : 2 (counting from zero)
 */
 ```
 
-# Binary Search:
-aplicable if and only if the array is sorted.
-
-```cpp
-    vector<int> v{2, 4, 5, 6, 7, 7, 78};
-    int key = 7;
-
-    if(binary_search(v.begin(),v.end(),key)){
-        cout<<"hi";
-    }
-    else{
-        cout<<"no";
-    }
-/*
-    hi
-*/
-```
-# lower_bound():

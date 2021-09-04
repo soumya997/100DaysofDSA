@@ -7,6 +7,12 @@
 2. binary search
 3. quick sort
 
+# virtual function?
+<p align="center">
+  <img width="300" height="250" src="https://imgur.com/gallery/JqaGCmu">
+</p>
+
+
 # Volatile Qualifier:
 if the value of an variable is changeable in future then, using 
 `volatile` keyword with the variable helps the compiler not to 
