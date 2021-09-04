@@ -31,10 +31,12 @@ What is a static variable?
 What is the purpose of extern storage specifier.
 What is a class template?
 What is a friend function?
+
+
 # What is a namespace?
 A namespace is the logical division of the code which can be used to resolve the name conflict of the identifiers by placing them under different name space.
 # Explain the pointer – this.
-This, is the pointer variable of the compiler which always holds the current active object’s address.
+This, is the pointer variable of the compiler which always holds the current active object’s address. refers to current object of the class.
 
 # Which key word is used to perform unconditional branching?
 ->goto
