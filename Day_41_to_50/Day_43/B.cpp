@@ -49,7 +49,7 @@ void _print(ull t) {cerr << t;}
 #define MOD 1000000007
 #define MOD1 998244353
 #define INF 1e18
-#define endl "\n"
+#define nline "\n"
 #define pb push_back
 #define ppb pop_back
 #define mp make_pair
@@ -82,5 +82,16 @@ int main() {
 #endif
 
     fastio();
+    // cout<<11%10;
+    int a,b;
+    cin>>a>>b;
+    int i = a;
+    int j = b;
+    int mx = INT_MIN;
+    int cs = 0;
+    while(i<=j){
+        cs = j%i;
 
+    }
+    cout<<mx;
 }

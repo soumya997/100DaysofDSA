@@ -82,5 +82,22 @@ int main() {
 #endif
 
     fastio();
-
+    int c;
+    cin>>c;
+    while(c--){
+        int n;
+        cin>>n;
+        vi v(n);
+        for(int i=0;i<n;i++){
+            int ip;
+            cin>>ip;
+            // v.push_back(ip);
+            v[i] = ip;
+        }
+        int ans=v[0];
+        for(int i=1;i<n;i++){
+            ans = (ans & v[i]);
+        }
+        cout<<ans<<endl;
+    }
 }

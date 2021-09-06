@@ -206,6 +206,129 @@ int kadens(vector<int> v){
     return mx;
 }
 
+// template<typename T>
+class stack{
+private:
+    vector<int> v;
+public:
+    /*
+        1. push
+        2. empty
+        3. pop
+        4. top
+    */
+
+    void push(int d){
+        v.push_back(d);
+    }
+
+    bool empty(){
+        return v.size()==0;
+    }
+    void pop(){
+        v.pop_back();
+    }
+
+    int top(){
+        return v[v.size()-1];
+    }
+};
+
+
+class queue{
+    int *arr;
+    int f,r,cs,ms;
+
+public:
+    Queue(int ds = 5){
+        arr = new int(ds);
+        cs = 0;
+        ms = ds;
+        f = 0;
+        r = ms-1;
+    }
+
+    bool full(){
+        return cs ==ms;
+    }
+    void push(int data){
+        if(!full()){
+            r = (r+1)%ms;
+            arr[r] = data;
+            cs++;
+        }
+    }
+
+    ~Queue(){
+        if(arr!=NULL){
+            delete [] arr;
+            arr =NULL;
+        }
+    }
+};
+
+class node{
+public:
+    int data;
+    node* left;
+    node* right;
+    node(int d){
+        data = d;
+        left=right=NULL;
+    }
+};
+
+node* build_tree(){
+    int d;
+    cin>>d;
+    if(d=-1){
+        return NULL;
+    }
+
+    node* root = new node(d);
+    root->left = build_tree();
+    root->right = build_tree();
+
+    return root;
+}
+
+void print_kth_level(node* root,int k){
+    if(root==NULL){
+        return;
+    }
+    if(k==1){
+        cout<<root->data<<",";
+        return;
+    }
+    print_kth_level(root->left,k-1);
+    print_kth_level(root->right,k-1);
+    return;
+}
+
+int position(vector<int> v,int s,int e){
+    int i = s-1;
+    int j= s;
+    int p = v[e];
+    for(int i=0;i<=e;i++){
+        if(v[i]<p){
+            swap(v[i],v[j]);
+            i++;
+        }
+    }
+}
+
+
+void quick_sort(vector<int> v,int s, int e){
+    if(s>e){
+        return;
+    }
+
+    int p = position(v,s,e);
+    quick_sort(v,s,p-1);
+    quick_sort(v,p+1,e);
+
+}
+
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -215,5 +338,5 @@ int main() {
     fastio();
     // pattern_7();
     vector<int> v{-4,1,3,-2,6,2,-1,-4,-7};
-    cout<<kadens(v);
+    // cout<<kadens(v);
 }

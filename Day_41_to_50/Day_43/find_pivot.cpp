@@ -49,7 +49,7 @@ void _print(ull t) {cerr << t;}
 #define MOD 1000000007
 #define MOD1 998244353
 #define INF 1e18
-#define endl "\n"
+#define nline "\n"
 #define pb push_back
 #define ppb pop_back
 #define mp make_pair
@@ -74,7 +74,76 @@ void _print(ull t) {cerr << t;}
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+// int majorityElement1(vector<int>& nums) {
+//     int mx = maxall(nums);
+//     // cout<<mx<<nline;
+//     vector<int> v(mx+1,0);
+//     for(int i=0;i<mx;i++){
+//         debug(nums[i])
+//         v[nums[i]]++;
+//     }
 
+//     // print_vec(v);
+//     // return 0;
+//     int mx_ans = *max_element(v.begin(),v.end());
+//     vector<int>::iterator it = find(v.begin(),v.end(),mx_ans);
+//     return it - v.begin();
+
+// }
+
+int majorityElement(vector<int> nums){
+    int ele = nums[0],cnt=1;
+    for(int i=1;i<nums.size();i++){
+        // 1,2,1
+        if(nums[i] == ele){
+            cnt++;
+            ele = nums[i];
+        }
+        else{
+
+
+            if(cnt==0){
+                ele = nums[i];
+                cnt++;
+            }
+            else{
+                cnt--;
+            }
+        }
+    }
+
+    return ele;
+
+}
+
+int removeDuplicates(vector<int>& nums) {
+    // int cnt = 1;
+    set<int> st;
+    for(int i=0;i<nums.size();i++){
+        st.insert(nums[i]);
+    }
+
+
+    // for(auto k:st){
+    //     cout<<k<<",";
+    // }
+    // cout<<nline;
+    int tim = nums.size() - st.size();
+    for(int i=0;i<=tim;i++){
+        nums.pop_back();
+    }
+
+    // print_vec(nums);
+    // cout<<nline;
+
+    // copy(st.begin(),st.end(),nums.begin());
+    nums.assign(st.begin(), st.end());
+    // print_vec(nums);
+    // cout<<nline;
+
+
+    return st.size();
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -82,5 +151,8 @@ int main() {
 #endif
 
     fastio();
+    vector<int> v{1,2,1,3,4,1,1};
+    // cout<<removeDuplicates(v);
+    cout<<majorityElement(v);
 
 }

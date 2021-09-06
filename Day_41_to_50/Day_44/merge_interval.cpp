@@ -74,7 +74,16 @@ void _print(ull t) {cerr << t;}
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-
+vector<vector<int>> merge(vector<vector<int>>& v) {
+    for (int i = 1; i < v.size(); i++) {
+        if (v[i-1][1] >= v[i][0]) {
+            v[i][0] = v[i-1][0];
+            v.erase(v.begin() + i-1);
+        }
+        // cout<<v[i+1][0]<<endl;
+    }
+    return v;
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -82,5 +91,30 @@ int main() {
 #endif
 
     fastio();
+    vector<vector<int>> v{{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+    sort(all(v));
+    vector<vector<int>> ans;
+    ans  = merge(v);
+    // for(auto k:v){
+    //     for(auto g:k){
+    //         cout<<g<<",";
+    //     }
+    // }
+    // int num = v[0][1];
+    // for (int i = 1; i < v.size(); i++) {
+    //     if (v[i-1][1] >= v[i][0]) {
+    //         v[i][0] = v[i-1][0];
+    //         v.erase(v.begin() + i-1);
+    //     }
+    //     // cout<<v[i+1][0]<<endl;
+    // }
+    // v.erase(v.begin() + 2);
 
+    for (int i = 0; i < v.size(); i++) {
+        for (int j = 0; j < v[i].size(); j++) {
+            cout << v[i][j] << ",";
+        }
+        cout << endl;
+    }
+    // cout<<"hi";
 }

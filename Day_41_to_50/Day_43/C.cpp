@@ -49,7 +49,7 @@ void _print(ull t) {cerr << t;}
 #define MOD 1000000007
 #define MOD1 998244353
 #define INF 1e18
-#define endl "\n"
+#define nline "\n"
 #define pb push_back
 #define ppb pop_back
 #define mp make_pair
@@ -82,5 +82,43 @@ int main() {
 #endif
 
     fastio();
+    int t;
+    cin>>t;
+    while(t--){
+        int i;
+        cin >> i;
+        int a = 1;
+        int d = 1;
+        int cnt = 0;
+        int one_ans = a + (i - 1) * d;
+        int store_ans = one_ans;
+        // for(int i=1;i<one_ans;i++){
+        //     if(i%10 ==3 or i%3==0){
+        //         debug(i)
+        //         cnt = cnt+1;
+        //     }
+        // }
+        int j=1;
+        int ans;
+        while(j<=i){
+            if(j%10 ==3 or j%3==0){
+                
+            }
+        }
+        cout<<cnt;
+        // if (one_ans % 10 == 3 or one_ans % 3 == 0) {
+        //     one_ans = one_ans + 1;
+        // }
+        // // cout<<cnt<<endl;
+        // int cnt2 = 0;
+        // int new_ans = one_ans+cnt;
+        // for(int i=store_ans;i<=new_ans;i++){
+        //     if(i%10 ==3 or i%3==0){
+        //         // debug(i)
+        //         cnt2++;
+        //     }
+        // }
+        // cout<<new_ans+cnt2<<nline;
+    }
 
 }

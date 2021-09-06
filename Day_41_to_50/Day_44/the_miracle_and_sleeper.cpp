@@ -74,7 +74,17 @@ void _print(ull t) {cerr << t;}
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-
+void solve(){
+    int a,b;
+    cin>>a>>b;
+    int num = (b/2)+1;
+    if(num>=a and num<=b){
+        cout<<(b%num)<<endl;
+    }
+    else{
+        cout<<(b%a)<<endl;
+    }
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -82,5 +92,9 @@ int main() {
 #endif
 
     fastio();
-
+    int t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
 }

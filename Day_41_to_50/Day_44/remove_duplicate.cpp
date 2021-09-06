@@ -49,7 +49,7 @@ void _print(ull t) {cerr << t;}
 #define MOD 1000000007
 #define MOD1 998244353
 #define INF 1e18
-#define endl "\n"
+#define nline "\n"
 #define pb push_back
 #define ppb pop_back
 #define mp make_pair
@@ -74,7 +74,33 @@ void _print(ull t) {cerr << t;}
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
 
+        // Return Value: unique returns an iterator to the element that follows
+        // the last element not removed. The range between first and this
+        // iterator includes all the elements in the sequence that were not
+        // duplicates and hence not removed.
+        // https://www.geeksforgeeks.org/stdunique-in-cpp/
+
+        // good one -> https://leetcode.com/problems/remove-duplicates-from-sorted-array/discuss/1350762/C%2B%2B-or-Brute-Force-or-Optimal(Two-Pointer-Method)-or-Solution-or-Time-O(N)-or-Auxiliary-Space-O(1)-or
+        return unique(nums.begin(), nums.end()) - nums.begin();
+
+    }
+};
+
+int removeDuplicates(vector<int>& nums) {
+
+    // Return Value: unique returns an iterator to the element that follows
+    // the last element not removed. The range between first and this
+    // iterator includes all the elements in the sequence that were not
+    // duplicates and hence not removed.
+    // https://www.geeksforgeeks.org/stdunique-in-cpp/
+
+    return unique(nums.begin(), nums.end()) - nums.begin();
+
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -82,5 +108,8 @@ int main() {
 #endif
 
     fastio();
-
+    vector<int> v{1,1,2};
+    // Solution obj;
+    // cout << obj.removeDuplicates(v);
+    cout<<removeDuplicates(v);
 }

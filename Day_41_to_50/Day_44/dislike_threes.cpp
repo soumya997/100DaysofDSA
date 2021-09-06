@@ -74,7 +74,27 @@ void _print(ull t) {cerr << t;}
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+// void solve(){
+//     int num;
+//     cin>>num;
 
+//     vi v(1000);
+//     v[0] = 1;
+//     for(int i=1;i<=1000;i++){
+//         int ans = v[i-1]+1;
+//         if(ans%3==0 or ans%10==3){
+//             ans++;
+//             v[i] = ans;
+//         }
+//         else{
+//             v[i] = ans;
+//         }
+//     }
+//     cout<<"hi";
+//     // cout<<v[num]<<endl;
+// }
+
+vector<long long> v;
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -83,4 +103,27 @@ int main() {
 
     fastio();
 
+    // v[0] = 1;
+    for(int i=1;i<=1000000;i++){
+        // int ans = v[i-1]+1;
+        if(i%3==0){
+            continue;
+        }
+        else if(i%10==3){
+            continue;
+        }
+        else{
+            v.push_back(i);
+
+        }
+    }
+    int t;
+    cin>>t;
+    while(t--){
+        int k;
+        cin>>k;
+
+        cout<<v[k-1]<<endl;
+    }
+    // print_vec(v);
 }

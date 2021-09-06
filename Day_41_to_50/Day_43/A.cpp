@@ -49,7 +49,7 @@ void _print(ull t) {cerr << t;}
 #define MOD 1000000007
 #define MOD1 998244353
 #define INF 1e18
-#define endl "\n"
+#define nline "\n"
 #define pb push_back
 #define ppb pop_back
 #define mp make_pair
@@ -74,7 +74,39 @@ void _print(ull t) {cerr << t;}
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+bool test(vector<int>v,int mid){
+    int x = v[0];
+    v.push_back(x);
+    for(int i=0;i<v.size();i++){
+        int a = v[i];
+        int b = v[i+1];
+        int c = a&b;
+        if(c<=mid){
+            return true;
+        }
+    }
 
+    return false;
+}
+
+int binary(vector<int>v,int n){
+    int mx = maxall(v);
+    int s = 0;
+    int e = mx;
+    int mid;
+    while(s<=e){
+        mid = (s+e)/2;
+        if(test(v,mid)){
+            e = mid -1;
+        }
+        else{
+            s = mid+1;
+        }
+
+    }
+
+    return mid;
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -82,5 +114,18 @@ int main() {
 #endif
 
     fastio();
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int> v;
+        for(int i=0;i<n;i++){
+            int temp;
+            cin>>temp;
+            v.push_back(temp);
+        }
+        cout<<binary(v,n);
 
+    }
 }
