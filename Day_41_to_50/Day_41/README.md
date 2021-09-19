@@ -9,7 +9,7 @@
 
 # virtual function?
 <p align="center">
-  <img width="300" height="250" src="https://imgur.com/gallery/JqaGCmu">
+  <img width="300" height="250" src="https://i.imgur.com/un7lNiE.png">
 </p>
 
 
