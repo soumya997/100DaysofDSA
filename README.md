@@ -13,7 +13,7 @@
     <a href="https://twitter.com/somuSa_"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/somuSa_?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@somuSa_"></a>
 </p>
 
-<!-- I have scheduled a timeline for doing the base work for DSA/CP,[here]( https://www.notion.so/soumya997/DSA-Targets-2-week-plan-689460d1ba3848b19c000f41d9c29617)
+<!-- I have scheduled a timeline[^1] for doing the base work for DSA/CP,[here]( https://www.notion.so/soumya997/DSA-Targets-2-week-plan-689460d1ba3848b19c000f41d9c29617)
 - Learn topics basic topics of cp/DSA by **3rd June**,
 - practic basic problems topic wise from **4th to 15th June**.
 - After that practicing continues and participation in codeforces contests and codechef contests starts.
@@ -53,6 +53,9 @@ Here I put the questions that are solved in daily bases with solution script and
 |Day 21|[Trapping rain water,<br>Shortest Unsorted Continuous Subarray](Day_21_to_30/Day_21/README.md)|[Day 21](Day_21_to_30/Day_21)|
 |Day 22|[Longest Consecutive Sequence,<br> Minimum Swaps to Sort](Day_21_to_30/Day_22/README.md)|[Day 22](Day_21_to_30/Day_22)|
 |Day 23|[Product of Array Except Self,<br>Minimum Number of Arrows to Burst Balloons,<br>Maximum Subarray](Day_21_to_30/Day_23/README.md)|[Day 23](Day_21_to_30/Day_23)|
+|Day 24|[Subsets, LC: 78,<br>  Is Subsequence, LC: 392](Day_21_to_30/Day_24/README.md)|[Day 24](Day_21_to_30/Day_24)|
+|Day 25|[Largest Number, LC: 179,<br> String Compression, LC: 443,<br> Detect Capital 520](Day_21_to_30/Day_25/README.md)|[Day 25](Day_21_to_30/Day_25)|
+|Day 26|[Search all,<br>  string Tokenization<br>Search all](Day_21_to_30/Day_24/README.md)|[Day 26](Day_21_to_30/Day_26)|
 
 
 
@@ -128,3 +131,4 @@ Table to see the twitter posts regarding `100DaysOfDSA` challenge. **I will try 
 
 
  -->
+

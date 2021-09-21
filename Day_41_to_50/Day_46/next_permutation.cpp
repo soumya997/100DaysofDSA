@@ -71,76 +71,60 @@ void _print(ull t) {cerr << t;}
 #define minall(v) *min_element(all(v))
 #define max3(a,b,c) max(a,max(b,c))
 #define min3(a,b,c) min(a,min(b,c))
+#define check_sorted(v) is_sorted(all(v)) // to check a vector is sorted or not
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-class Solution {
-public:
-    vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        vector<vector<int>> mergedIntervals;
-        if(intervals.size() == 0) {
-            return mergedIntervals;
-        }
-        sort(intervals.begin(), intervals.end());
-        vector<int> tempInterval = intervals[0];
-
-        for(auto it : intervals) {
-            if(it[0] <= tempInterval[1]) {
-                tempInterval[1] = max(it[1], tempInterval[1]);
-            } else {
-                mergedIntervals.push_back(tempInterval);
-                tempInterval = it;
-            }
-        }
-        mergedIntervals.push_back(tempInterval);
-        return mergedIntervals;
-    }
-};
-
-
-bool is_mergeable(vector<int> v1,vector<int> v2){
-    return v1[1]<v2[1] and v2[0]<v1[1];
+bool compare(int a,int b){
+    return a>b;
 }
 
-vector<vector<int>> merge(vector<vector<int>>& v) {
-    if(v.size() <= 1){
-        return v;
+// void nextPermutation(vector<int>& nums) {
+//     const int n = nums.size();
+//     bool flag = false;
+//     for(int i=0;i<n;i++){
+//         int j=i+1;
+//         for(;j<n;j++){
+//             if(nums[i] < nums[j]){
+//                 flag = true;
+//                 swap(nums[i],nums[j]);
+//                 break;
+//             }
+//         }
+//         if(flag == false){
+//             sort(all(nums));
+//         }
+//     }
+// }
+
+void nextPermutation(vector<int>& nums) {
+    const int n = nums.size();
+    if(n==1){
+        return;
     }
-
-    vector<int> store(2);
-    sort(all(v));
-    vector<vector<int>> temp;
-    store = v[0];
-
-    int n = v.size();
-    for(int i=1;i<n;i++){
-        if(v[i-1] == v[i]){
-            temp.push_back(v[i]);
-            // v.erase(v.begin() + i - 1);
+    int nxt_perm = -1;
+    int i=1;
+    while(i<n){
+        if(nums[i]>nums[i-1]){
+            nxt_perm = i;
         }
-        else{
-            if(is_mergeable(v[i-1],v[i])){
-                store[1] = v[i][1];
-                // temp.push_back(store);
-            }
-            else{
-                // temp.push_back(v[i-1]);
-                temp.push_back(store);
-                store = v[i];
-            }
+        i++;
+    }
+    if(nxt_perm == -1){
+        sort(nums.begin(),nums.end());
+        return;
+    }
+
+    // special case
+    int index = nxt_perm;
+    for(int i=nxt_perm;i<n;i++){
+        if(nums[i]>nums[nxt_perm-1] and nums[index]>nums[i]){
+            index = i;
         }
-
     }
-
-    temp.push_back(store);
-
-    v.clear();
-    for(int j=0;j<temp.size();j++){
-        v.push_back(temp[j]);
-    }
-
-    return temp;
+    swap(nums[nxt_perm-1],nums[index]);
+    sort(nums.begin()+nxt_perm,nums.end());
 }
+
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -148,38 +132,7 @@ int main() {
 #endif
 
     fastio();
-    vector<vector<int>> v{{1, 3}, {2, 6}, {8, 10}, {15, 18}};
-    // sort(all(v));
-    vector<vector<int>> ans;
-    // vector<int> v1{1,3};
-    // vector<int> v2{2,6};
-    // if(is_mergeable(v1,v2)){
-    //     cout<<"hi";
-    // }
-    // else{
-    //     cout<<"no";
-    // }
-    ans  = merge(v);
-    // for(auto k:v){
-    //     for(auto g:k){
-    //         cout<<g<<",";
-    //     }
-    // }
-    // int num = v[0][1];
-    // for (int i = 1; i < v.size(); i++) {
-    //     if (v[i-1][1] >= v[i][0]) {
-    //         v[i][0] = v[i-1][0];
-    //         v.erase(v.begin() + i-1);
-    //     }
-    //     // cout<<v[i+1][0]<<endl;
-    // }
-    // v.erase(v.begin() + 2);
-
-    for (int i = 0; i < v.size(); i++) {
-        for (int j = 0; j < v[i].size(); j++) {
-            cout << v[i][j] << ",";
-        }
-        cout << endl;
-    }
-    // cout<<"hi";
+    vi v{1,2,3};
+    nextPermutation(v);
+    print_vec(v);
 }

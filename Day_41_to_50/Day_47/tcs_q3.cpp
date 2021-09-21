@@ -86,5 +86,14 @@ int main() {
 #endif
 
     fastio();
+    int a;
+    cin>>a;
 
+    int temp = 1;
+    while(temp<=a){
+        a = a^temp;
+        temp = temp <<1;
+    }
+
+    cout<<a;
 }

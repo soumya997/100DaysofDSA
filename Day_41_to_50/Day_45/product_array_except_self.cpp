@@ -74,72 +74,33 @@ void _print(ull t) {cerr << t;}
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-class Solution {
-public:
-    vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        vector<vector<int>> mergedIntervals;
-        if(intervals.size() == 0) {
-            return mergedIntervals;
-        }
-        sort(intervals.begin(), intervals.end());
-        vector<int> tempInterval = intervals[0];
+vector<int> productExceptSelf(vector<int>& nums) {
+    // deal is calculating prefix product and suffix product
+    // then use them to calculate the product array except self
+    const int n = nums.size();
+    vector<int> ans(n);
+    vector<int> pref;
+    vector<int> sufx(n+1);
 
-        for(auto it : intervals) {
-            if(it[0] <= tempInterval[1]) {
-                tempInterval[1] = max(it[1], tempInterval[1]);
-            } else {
-                mergedIntervals.push_back(tempInterval);
-                tempInterval = it;
-            }
-        }
-        mergedIntervals.push_back(tempInterval);
-        return mergedIntervals;
-    }
-};
-
-
-bool is_mergeable(vector<int> v1,vector<int> v2){
-    return v1[1]<v2[1] and v2[0]<v1[1];
-}
-
-vector<vector<int>> merge(vector<vector<int>>& v) {
-    if(v.size() <= 1){
-        return v;
+    // pref.push_back(1);
+    pref[0] = 1;
+    for(int x:nums){
+        pref.push_back(pref.back() * x);
     }
 
-    vector<int> store(2);
-    sort(all(v));
-    vector<vector<int>> temp;
-    store = v[0];
 
-    int n = v.size();
-    for(int i=1;i<n;i++){
-        if(v[i-1] == v[i]){
-            temp.push_back(v[i]);
-            // v.erase(v.begin() + i - 1);
-        }
-        else{
-            if(is_mergeable(v[i-1],v[i])){
-                store[1] = v[i][1];
-                // temp.push_back(store);
-            }
-            else{
-                // temp.push_back(v[i-1]);
-                temp.push_back(store);
-                store = v[i];
-            }
-        }
-
+    // sufx.push_back(1);
+    sufx[n] = 1;
+    for(int i=n-1;i>=0;i--){
+        sufx[i] = sufx[i+1] * nums[i];
     }
 
-    temp.push_back(store);
-
-    v.clear();
-    for(int j=0;j<temp.size();j++){
-        v.push_back(temp[j]);
+    for(int i=0;i<n;i++){
+        ans[i] = pref[i] * sufx[i+1];
     }
 
-    return temp;
+    print_vec(ans);
+    return ans;
 }
 
 int main() {
@@ -148,38 +109,7 @@ int main() {
 #endif
 
     fastio();
-    vector<vector<int>> v{{1, 3}, {2, 6}, {8, 10}, {15, 18}};
-    // sort(all(v));
-    vector<vector<int>> ans;
-    // vector<int> v1{1,3};
-    // vector<int> v2{2,6};
-    // if(is_mergeable(v1,v2)){
-    //     cout<<"hi";
-    // }
-    // else{
-    //     cout<<"no";
-    // }
-    ans  = merge(v);
-    // for(auto k:v){
-    //     for(auto g:k){
-    //         cout<<g<<",";
-    //     }
-    // }
-    // int num = v[0][1];
-    // for (int i = 1; i < v.size(); i++) {
-    //     if (v[i-1][1] >= v[i][0]) {
-    //         v[i][0] = v[i-1][0];
-    //         v.erase(v.begin() + i-1);
-    //     }
-    //     // cout<<v[i+1][0]<<endl;
-    // }
-    // v.erase(v.begin() + 2);
+    vector<int> v{-1,1,0,-3,3};
+    vector<int> k = productExceptSelf(v);
 
-    for (int i = 0; i < v.size(); i++) {
-        for (int j = 0; j < v[i].size(); j++) {
-            cout << v[i][j] << ",";
-        }
-        cout << endl;
-    }
-    // cout<<"hi";
 }

@@ -237,5 +237,99 @@ I needed to change the color of the comments in my color scheme, I'm using cobul
     ]
 }
 ```
+## monokai customized:
+```json
+// Documentation at https://www.sublimetext.com/docs/color_schemes.html
+{
+    "name": "soumya monokai",
+    "author": "Sublime HQ Pty Ltd",
+    "variables":
+    {
+        // These colors are part of the hashed range
+        // and should only be used in non-source
+        "purple": "hsla(260, 50%, 60%, 1)",
+        "blue":"#05f7ff",
+        "blue1": "hsla(200, 70%, 45%, 1)",
+        "teal": "hsla(170, 70%, 45%, 1)",
+        "green": "hsla(130, 70%, 45%, 1)",
+        // End of hashed range colors
+        "red": "hsla(0, 70%, 65%, 1)",
+        "red2": "hsl(338, 95%, 56%)",
+        "orange": "hsla(25, 90%, 60%, 1)",
+        "dark_orange": "hsla(10, 90%, 60%, 1)",
+        "yellow": "hsla(50, 100%, 60%, 1)",
+        "brown": "hsla(30, 30%, 45%, 1)",
+        "dark_brown": "hsla(30, 30%, 30%, 1)",
+        "magenta": "hsla(335, 100%, 65%, 1)",
+        "light_gray": "#f6f6f6",
+        "dark_gray": "#333",
+        "black": "black",
+        "pink": "#e371f5",
+        "lemon":"hsla(89, 100%, 58%, 0.92)",
+        "black3":"#212121",
+        // "black4": "#282c3e",
+        // "lemon2":"#aaff00",
+    },
+    "globals":
+    {
+        "caret": "color(var(lemon))",
+        "background": "var(black3)",
+        // "selection": "var(blue)",
+    },
+    "rules":
+    [
+        {
+            "scope": "comment",
+            "foreground": "#4da81b",
+            "font_style": "italic"
+        },
+        // {
+        //     "name": "Language variable",
+        //     "scope": "variable.language",
+        //     "foreground": "var(lemon2)",
+        //     "font_style": "italic"
+        // },
+        {
+            "name": "Function call",
+            "scope": "variable.function, variable.annotation",
+            "foreground": "var(red)"
+        },
+        {
+            "name": "Library function",
+            "scope": "support.function, support.macro",
+            "foreground": "var(blue)"
+        },
+        {
+            "name": "Library constant",
+            "scope": "support.constant",
+            "foreground": "var(blue)"
+        },
+        {
+            "name": "Library class/type",
+            "scope": "support.type, support.class",
+            "foreground": "var(red2)",
+            "font_style": "italic"
+        },
 
-## writing functions is calle procedural programming and wrting classes called object oriented programming.
+    ]
+}
+```
+
+## default:
+```json
+// Documentation at https://www.sublimetext.com/docs/color_schemes.html
+{
+    "variables":
+    {
+    },
+    "globals":
+    {
+    },
+    "rules":
+    [
+        
+    ]
+}
+
+```
+writing functions is calle procedural programming and wrting classes called object oriented programming.

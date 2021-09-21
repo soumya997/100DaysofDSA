@@ -74,73 +74,7 @@ void _print(ull t) {cerr << t;}
 // typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-class Solution {
-public:
-    vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        vector<vector<int>> mergedIntervals;
-        if(intervals.size() == 0) {
-            return mergedIntervals;
-        }
-        sort(intervals.begin(), intervals.end());
-        vector<int> tempInterval = intervals[0];
 
-        for(auto it : intervals) {
-            if(it[0] <= tempInterval[1]) {
-                tempInterval[1] = max(it[1], tempInterval[1]);
-            } else {
-                mergedIntervals.push_back(tempInterval);
-                tempInterval = it;
-            }
-        }
-        mergedIntervals.push_back(tempInterval);
-        return mergedIntervals;
-    }
-};
-
-
-bool is_mergeable(vector<int> v1,vector<int> v2){
-    return v1[1]<v2[1] and v2[0]<v1[1];
-}
-
-vector<vector<int>> merge(vector<vector<int>>& v) {
-    if(v.size() <= 1){
-        return v;
-    }
-
-    vector<int> store(2);
-    sort(all(v));
-    vector<vector<int>> temp;
-    store = v[0];
-
-    int n = v.size();
-    for(int i=1;i<n;i++){
-        if(v[i-1] == v[i]){
-            temp.push_back(v[i]);
-            // v.erase(v.begin() + i - 1);
-        }
-        else{
-            if(is_mergeable(v[i-1],v[i])){
-                store[1] = v[i][1];
-                // temp.push_back(store);
-            }
-            else{
-                // temp.push_back(v[i-1]);
-                temp.push_back(store);
-                store = v[i];
-            }
-        }
-
-    }
-
-    temp.push_back(store);
-
-    v.clear();
-    for(int j=0;j<temp.size();j++){
-        v.push_back(temp[j]);
-    }
-
-    return temp;
-}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -148,38 +82,23 @@ int main() {
 #endif
 
     fastio();
-    vector<vector<int>> v{{1, 3}, {2, 6}, {8, 10}, {15, 18}};
-    // sort(all(v));
-    vector<vector<int>> ans;
-    // vector<int> v1{1,3};
-    // vector<int> v2{2,6};
-    // if(is_mergeable(v1,v2)){
-    //     cout<<"hi";
-    // }
-    // else{
-    //     cout<<"no";
-    // }
-    ans  = merge(v);
-    // for(auto k:v){
-    //     for(auto g:k){
-    //         cout<<g<<",";
-    //     }
-    // }
-    // int num = v[0][1];
-    // for (int i = 1; i < v.size(); i++) {
-    //     if (v[i-1][1] >= v[i][0]) {
-    //         v[i][0] = v[i-1][0];
-    //         v.erase(v.begin() + i-1);
-    //     }
-    //     // cout<<v[i+1][0]<<endl;
-    // }
-    // v.erase(v.begin() + 2);
 
-    for (int i = 0; i < v.size(); i++) {
-        for (int j = 0; j < v[i].size(); j++) {
-            cout << v[i][j] << ",";
+    int n, k, cnt = 0;
+    cin >> n >> k;
+
+
+    for (int i = 0; i < n; i++) {
+        int temp;
+        cin >> temp;
+
+        if ((temp + k) > 5) {
+            continue;
         }
-        cout << endl;
+        else {
+            cnt++;
+        }
     }
-    // cout<<"hi";
+
+    cout << floor(cnt / 3);
+
 }

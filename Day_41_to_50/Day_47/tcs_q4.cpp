@@ -86,5 +86,10 @@ int main() {
 #endif
 
     fastio();
-
+    int a,b;
+    cin>>a>>b;
+    debug(b);
+    int ans1 = (b-(2*a))/2;
+    cout<<ans1<<endl;
+    cout<<a - ans1;
 }

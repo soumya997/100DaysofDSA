@@ -78,6 +78,44 @@ void _print(ull t) {cerr << t;}
 #define char_to_str(chr) string(chr); // convert char to str
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+bool is_odd(int n){
+    /*
+        check if a number is even or odd
+    */
+    return (n&1);
+}
+bool get_bit(int n,int i){
+    /*
+        find the ith bit of an number
+    */
+    int mask = (1<<i);
+    int bit = (n&mask)>0?1:0;
+    return bit;
+}
+int set_bit(int n,int i){
+    /*
+        set the ith position of an number
+    */
+    int mask = (1<<i);
+    int res = (n|mask);
+    return res;
+}
+int clear_bit(int n,int i){
+    /*
+        1. We need to clear a bit at ith position means
+        If,if the ith bit is 1 then make it 0 and if it is
+        Already 0 then keep it as 0.
+    */
+    int mask = (1<<i);
+    int inverted_mask = ~mask;
+    int res = (n&inverted_mask);
+    return res;
+}
+
+int update_bit(int &n,int i,int v){
+    int cleared_n = clear_bit(n,i);
+    n = cleared_n | (v<<i);
+}
 
 
 int main() {

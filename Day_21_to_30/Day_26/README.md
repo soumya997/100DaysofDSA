@@ -1,6 +1,12 @@
 # Things I learned in: Day_26
 **Note:** use the github provided TOC for navigaing.
 
+
+1. URLify a given string(searching_in_string.cpp)
+2. Search all(find_all.cpp)
+3. string Tokenization(string_tokenize.cpp)
+
+
 # String STL:
 ### str.find() function:
 string `find()` is different than the array/vector `find()` finction.

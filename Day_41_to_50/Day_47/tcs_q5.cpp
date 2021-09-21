@@ -86,5 +86,12 @@ int main() {
 #endif
 
     fastio();
+    string s;
+    int a=0,b=0;
+    getline(cin,s);
+    for(auto i:s)
+    if(i=='#') a++;
+    else if(i=='*') b++;
+    cout<<b-a;
 
 }

@@ -252,7 +252,7 @@ int main() {
         2. selection sort [x]
         3. merge sort [x]
         4. insersion sort[x]
-        5. counting sort
+        5. counting sort[x]
         6. quick sort[x]
     */
 

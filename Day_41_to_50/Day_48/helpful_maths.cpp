@@ -80,11 +80,76 @@ void _print(ull t) {cerr << t;}
 
 
 
-int main() {
-#ifndef ONLINE_JUDGE
-    freopen("errorf.in", "w", stderr);
-#endif
+// int main() {
+// #ifndef ONLINE_JUDGE
+//     freopen("errorf.in", "w", stderr);
+// #endif
 
-    fastio();
+//     fastio();
+//     string s;
+//     cin>>s;
 
+
+//     int idx = 0;
+//     char temp[s.length()-1];
+//     for(int i=0;i<s.length();i++){
+//         if(s[i] != '+'){
+//             temp[idx] = s[i];
+//             idx++;
+//         }
+//     }
+
+//     const int n = strlen(temp);
+//     sort(temp,temp+n);
+//     for (int i=0;i<n;i++){
+//         if (i!=0) cout<<'+';
+//         cout<<temp[i];
+//     }
+
+
+// }
+
+// #include<bits/stdc++.h>
+// #include<string>
+
+// int main() {
+//     string s;
+//     cin>>s;
+//     bool flag = true;
+//     for(int i=0;i<s.length();i++){
+//         if(isalpha(s[i])){
+//             flag = true;
+//         }
+//         else{
+//             flag = false;
+//         }
+//     }
+
+//     if(flag){
+//         cout<<"alpha";
+//     }
+//     else{
+//         cout<"no";
+//     }
+// }
+
+
+
+int count_prem(string str){
+    if(str.length()==0){
+        return 1;
+    }
+    int x = str.length();
+    int fact = 1;
+    for(int i=1;i<=x;i++){
+        fact = fact*i;
+    }
+    return fact;
+}
+
+int main(){
+    string s;
+    cin>>s;
+
+    cout<<count_prem(s);
 }
