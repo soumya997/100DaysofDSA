@@ -74,10 +74,46 @@ void _print(ull t) {cerr << t;}
 #define check_sorted(v) is_sorted(all(v)) // to check a vector is sorted or not
 
 #define str_to_int(x) stoi(x) // converts a string to an int
-#define str_to_char(buffer,str) strcpy(buffer,str.c_str())// convert str to char
+#define str_to_char(buffer,str) strcpy(buffer,str.c_str())// convert str to char(buffer is the char array where o/p will get stored,str->i/p string)
 #define char_to_str(chr) string(chr); // convert char to str
+
+#define dec_to_bin(n) bitset<32>(n).to_string(); // convert decimal to binary(i/p -> the decimal number and returns the 32 bit bin number)
+#define bin_to_dec(bin_num) stoi(bin_string, 0, 2); // convert binary to decimal(it takes string i/p eg, "101" and o/p 5)
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+// least optimized (tc-> O(untill the number becomes zero))
+int count_setbit(int n){
+    int ans = 0;
+
+    while(n>0){
+        ans += (n&1);
+        n = n>>1;
+    }
+    return ans;
+}
+
+// // 2nd most optimized (tc-> O(log(n)))
+// int count_setbit1(int n){
+//     int ans = 0;
+//     int cnt = log2(n);
+//     while(cnt>0){
+//         int ones = 1;
+//         ans += (n&ones);
+//         ones = ones<<1;
+//         cnt--;
+//     }
+//     return ans;
+// }
+
+// most optimized(tc -> O(on. of set bits))
+int count_setbit_fast(int n){
+    int ans = 0;
+    while(n>0){
+        n = n&(n-1);
+        ans++;
+    }
+    return ans;
+}
 
 
 int main() {
@@ -86,70 +122,5 @@ int main() {
 #endif
 
     fastio();
-    string s;
-    cin>>s;
-
-
-    int idx = 0;
-    char temp[s.length()-1];
-    for(int i=0;i<s.length();i++){
-        if(s[i] != '+'){
-            temp[idx] = s[i];
-            idx++;
-        }
-    }
-
-    const int n = strlen(temp);
-    sort(temp,temp+n);
-    for (int i=0;i<n;i++){
-        if (i!=0) cout<<'+';
-        cout<<temp[i];
-    }
-
-
-}
-
-#include<bits/stdc++.h>
-#include<string>
-
-int main() {
-    string s;
-    cin>>s;
-    bool flag = true;
-    for(int i=0;i<s.length();i++){
-        if(isalpha(s[i])){
-            flag = true;
-        }
-        else{
-            flag = false;
-        }
-    }
-
-    if(flag){
-        cout<<"alpha";
-    }
-    else{
-        cout<"no";
-    }
-}
-
-
-
-int count_prem(string str){
-    if(str.length()==0){
-        return 1;
-    }
-    int x = str.length();
-    int fact = 1;
-    for(int i=1;i<=x;i++){
-        fact = fact*i;
-    }
-    return fact;
-}
-
-int main(){
-    string s;
-    cin>>s;
-
-    cout<<count_prem(s);
+    cout<<count_setbit(15);
 }

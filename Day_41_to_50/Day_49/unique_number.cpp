@@ -74,8 +74,11 @@ void _print(ull t) {cerr << t;}
 #define check_sorted(v) is_sorted(all(v)) // to check a vector is sorted or not
 
 #define str_to_int(x) stoi(x) // converts a string to an int
-#define str_to_char(buffer,str) strcpy(buffer,str.c_str())// convert str to char
+#define str_to_char(buffer,str) strcpy(buffer,str.c_str())// convert str to char(buffer is the char array where o/p will get stored,str->i/p string)
 #define char_to_str(chr) string(chr); // convert char to str
+
+#define dec_to_bin(n) bitset<32>(n).to_string(); // convert decimal to binary(i/p -> the decimal number and returns the 32 bit bin number)
+#define bin_to_dec(bin_num) stoi(bin_string, 0, 2); // convert binary to decimal(it takes string i/p eg, "101" and o/p 5)
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 
@@ -86,70 +89,30 @@ int main() {
 #endif
 
     fastio();
-    string s;
-    cin>>s;
-
-
-    int idx = 0;
-    char temp[s.length()-1];
-    for(int i=0;i<s.length();i++){
-        if(s[i] != '+'){
-            temp[idx] = s[i];
-            idx++;
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    int sum =0 ;
+    for(int i=0;i<n;i++){
+        int temp;
+        cin>>temp;
+        arr[i] = temp;
+        sum = sum ^ temp;
+    }
+    int pos = 0;
+    int sum1 = sum;
+    while((sum1&1)!=1){
+        pos++;
+        sum1>>1;
+    }
+    int mask = 1<<pos;
+    int new_res = 0;
+    for(int i=0;i<n;i++){
+        if((arr[i]&mask)>0){
+            new_res = new_res ^ arr[i];
         }
     }
+    int new_res1 = sum ^ new_res;
 
-    const int n = strlen(temp);
-    sort(temp,temp+n);
-    for (int i=0;i<n;i++){
-        if (i!=0) cout<<'+';
-        cout<<temp[i];
-    }
-
-
-}
-
-#include<bits/stdc++.h>
-#include<string>
-
-int main() {
-    string s;
-    cin>>s;
-    bool flag = true;
-    for(int i=0;i<s.length();i++){
-        if(isalpha(s[i])){
-            flag = true;
-        }
-        else{
-            flag = false;
-        }
-    }
-
-    if(flag){
-        cout<<"alpha";
-    }
-    else{
-        cout<"no";
-    }
-}
-
-
-
-int count_prem(string str){
-    if(str.length()==0){
-        return 1;
-    }
-    int x = str.length();
-    int fact = 1;
-    for(int i=1;i<=x;i++){
-        fact = fact*i;
-    }
-    return fact;
-}
-
-int main(){
-    string s;
-    cin>>s;
-
-    cout<<count_prem(s);
+    cout<<new_res<<" "<<new_res1;
 }

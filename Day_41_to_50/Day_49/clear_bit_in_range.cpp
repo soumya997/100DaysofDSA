@@ -17,6 +17,7 @@ typedef pair<ll, bool> pib;
 typedef pair<double, double> pdd;
 typedef pair<int, double> pid;
 typedef pair< int, pii> ipii;
+// typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
 
 
 void _print(ll t) {cerr << t;}
@@ -49,7 +50,7 @@ void _print(ull t) {cerr << t;}
 #define MOD 1000000007
 #define MOD1 998244353
 #define INF 1e18
-#define nline "\n"
+#define endl "\n"
 #define pb push_back
 #define ppb pop_back
 #define mp make_pair
@@ -63,7 +64,6 @@ void _print(ull t) {cerr << t;}
 #define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #define print_vec(x) for(auto i:x) cout<<i<<" "; // prints elements of an int vector
 #define check_all_zero(v) all_of(v.begin(), v.end(), [](int i) { return i==0; })
-#define str_to_int(x) stoi(x) // converts a string to an int
 #define eps 1e-9
 #define gcd(x,y) __gcd(x,y)
 #define lcm(a,b) (a*(b/gcd(a,b)))
@@ -71,8 +71,44 @@ void _print(ull t) {cerr << t;}
 #define minall(v) *min_element(all(v))
 #define max3(a,b,c) max(a,max(b,c))
 #define min3(a,b,c) min(a,min(b,c))
-// typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update > pbds; // find_by_order, order_of_key
+#define check_sorted(v) is_sorted(all(v)) // to check a vector is sorted or not
+
+#define str_to_int(x) stoi(x) // converts a string to an int
+#define str_to_char(buffer,str) strcpy(buffer,str.c_str())// convert str to char
+#define char_to_str(chr) string(chr); // convert char to str
+
+#define dec_to_bin(n) bitset<32>(n).to_string(); // convert decimal to binary(i/p -> the decimal number and returns the 32 bit bin number)
+#define bin_to_dec(bin_num) stoi(bin_string, 0, 2); // convert binary to decimal(it takes string i/p eg, "101" and o/p 5)
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+int clear_bit_from_right(int n, int i) {
+    /*
+        clear bit upto ith position from right
+        ex:
+        n = 5,in binary representation = 101
+        and i = 1, from right ith position will be
+        reased and will be replaced by zeros.
+        now n = 100, and in decimals it is n = 4;
+    */
+
+    int ones = (~0) << i;
+    n = n & ones;
+    return n;
+}
+
+int clear_bit_i_to_j(int n, int i, int j) {
+    /*
+        ex:
+        n = 22 = 11110, i = 1, j=3
+        result will be,n = 10000 -> 1 000 0
+        the middle three zeros are made because of this function
+    */
+    int left = (~0) << (j + 1);
+    int right = (1 << i) - 1;
+    int mask = left | right;
+    n = n & mask;
+    return n;
+}
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -80,5 +116,12 @@ int main() {
 #endif
 
     fastio();
-    cout<<"hi";
+    // cout << clear_bit_from_right(5, 1);
+    // cout << clear_bit_i_to_j(22, 1, 3);
+    int left = (~0) << (3 + 1);
+    int right = (1 << 1) - 1;
+
+    cout<<right;
+    cout<<endl<<dec_to_bin(left);
+
 }

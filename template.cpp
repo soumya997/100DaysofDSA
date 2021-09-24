@@ -74,8 +74,11 @@ void _print(ull t) {cerr << t;}
 #define check_sorted(v) is_sorted(all(v)) // to check a vector is sorted or not
 
 #define str_to_int(x) stoi(x) // converts a string to an int
-#define str_to_char(buffer,str) strcpy(buffer,str.c_str())// convert str to char
+#define str_to_char(buffer,str) strcpy(buffer,str.c_str())// convert str to char(buffer is the char array where o/p will get stored,str->i/p string)
 #define char_to_str(chr) string(chr); // convert char to str
+
+#define dec_to_bin(n) bitset<32>(n).to_string(); // convert decimal to binary(i/p -> the decimal number and returns the 32 bit bin number)
+#define bin_to_dec(bin_num) stoi(bin_string, 0, 2); // convert binary to decimal(it takes string i/p eg, "101" and o/p 5)
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 

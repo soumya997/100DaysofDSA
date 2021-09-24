@@ -74,10 +74,27 @@ void _print(ull t) {cerr << t;}
 #define check_sorted(v) is_sorted(all(v)) // to check a vector is sorted or not
 
 #define str_to_int(x) stoi(x) // converts a string to an int
-#define str_to_char(buffer,str) strcpy(buffer,str.c_str())// convert str to char
+#define str_to_char(buffer,str) strcpy(buffer,str.c_str())// convert str to char(buffer is the char array where o/p will get stored,str->i/p string)
 #define char_to_str(chr) string(chr); // convert char to str
+
+#define dec_to_bin(n) bitset<32>(n).to_string(); // convert decimal to binary(i/p -> the decimal number and returns the 32 bit bin number)
+#define bin_to_dec(bin_num) stoi(bin_string, 0, 2); // convert binary to decimal(it takes string i/p eg, "101" and o/p 5)
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Code Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+int clear_in_range(int n,int i,int j){
+    int a = (~0)<<(j+1);
+    int b = (1<<i)-1;
+    int mask = a|b;
+    n = (n&mask);
+    return n;
+}
+
+int replace_n_by_m(int n,int m,int i,int j){
+    n = clear_in_range(n,i,j);
+    int temp = m<<i;
+    n = n|temp;
+    return n;
+}
 
 
 int main() {
@@ -86,70 +103,12 @@ int main() {
 #endif
 
     fastio();
-    string s;
-    cin>>s;
+    int n = replace_n_by_m(39,7,1,3);
+    // cout<<n;
+    cout<<"39:"<<dec_to_bin(39);
+    cout<<endl;
+    cout<<"7: "<<dec_to_bin(7);
+    cout<<endl;
+    cout<<"n: "<<dec_to_bin(n);
 
-
-    int idx = 0;
-    char temp[s.length()-1];
-    for(int i=0;i<s.length();i++){
-        if(s[i] != '+'){
-            temp[idx] = s[i];
-            idx++;
-        }
-    }
-
-    const int n = strlen(temp);
-    sort(temp,temp+n);
-    for (int i=0;i<n;i++){
-        if (i!=0) cout<<'+';
-        cout<<temp[i];
-    }
-
-
-}
-
-#include<bits/stdc++.h>
-#include<string>
-
-int main() {
-    string s;
-    cin>>s;
-    bool flag = true;
-    for(int i=0;i<s.length();i++){
-        if(isalpha(s[i])){
-            flag = true;
-        }
-        else{
-            flag = false;
-        }
-    }
-
-    if(flag){
-        cout<<"alpha";
-    }
-    else{
-        cout<"no";
-    }
-}
-
-
-
-int count_prem(string str){
-    if(str.length()==0){
-        return 1;
-    }
-    int x = str.length();
-    int fact = 1;
-    for(int i=1;i<=x;i++){
-        fact = fact*i;
-    }
-    return fact;
-}
-
-int main(){
-    string s;
-    cin>>s;
-
-    cout<<count_prem(s);
 }

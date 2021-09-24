@@ -121,6 +121,4 @@ int main() {
     }
 
     cout<<temp;
-
-
 }

@@ -35,5 +35,5 @@ public:
 # 1351. Count Negative Numbers in a Sorted Matrix - LeetCode
 count_negetive_number.cpp
 
-# majority element 
+# majority element
 https://leetcode.com/problems/majority-element/
