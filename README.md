@@ -10,7 +10,7 @@
     </a>
 </p>
 <p align="center">
-    <a href="https://twitter.com/somuSa_"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/somuSa_?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@somuSa_"></a>
+    <a href="https://twitter.com/somuSan_"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/somuSan_?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@somuSan_"></a>
 </p>
 
 <!-- I have scheduled a timeline[^1] for doing the base work for DSA/CP,[here]( https://www.notion.so/soumya997/DSA-Targets-2-week-plan-689460d1ba3848b19c000f41d9c29617)
